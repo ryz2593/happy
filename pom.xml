@@ -12,6 +12,7 @@
         <module>happy-leetCode</module>
       <module>happy-study</module>
       <module>happy-datasource-pool</module>
+        <module>happy-sort</module>
     </modules>
 
     <name>happy</name>
