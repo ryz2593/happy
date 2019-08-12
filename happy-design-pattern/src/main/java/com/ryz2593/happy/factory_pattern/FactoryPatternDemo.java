@@ -1,6 +1,8 @@
 package com.ryz2593.happy.factory_pattern;
 
 /**
+ * 使用该工厂，通过传递类型信息来获取实体类的对象。
+ * 执行程序，输出结果
  * @author ryz2593
  * @date 2019/8/12
  * @desc

@@ -1,6 +1,7 @@
 package com.ryz2593.happy.factory_pattern;
 
 /**
+ * 创建一个工厂，生成基于给定信息的实体类的对象。
  * @author ryz2593
  * @date 2019/8/12
  * @desc
