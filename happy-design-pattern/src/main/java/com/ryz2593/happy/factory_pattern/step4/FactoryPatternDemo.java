@@ -1,6 +1,7 @@
-package com.ryz2593.happy.factory_pattern;
+package com.ryz2593.happy.factory_pattern.step4;
 
 import com.ryz2593.happy.factory_pattern.step1.Shape;
+import com.ryz2593.happy.factory_pattern.step3.ShapeFactory;
 
 /**
  * 使用该工厂，通过传递类型信息来获取实体类的对象。

@@ -1,6 +1,9 @@
-package com.ryz2593.happy.factory_pattern;
+package com.ryz2593.happy.factory_pattern.step3;
 
 import com.ryz2593.happy.factory_pattern.step1.Shape;
+import com.ryz2593.happy.factory_pattern.step2.Circle;
+import com.ryz2593.happy.factory_pattern.step2.Rectangle;
+import com.ryz2593.happy.factory_pattern.step2.Square;
 
 /**
  * 创建一个工厂，生成基于给定信息的实体类的对象。

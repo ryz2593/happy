@@ -1,4 +1,4 @@
-package com.ryz2593.happy.factory_pattern;
+package com.ryz2593.happy.factory_pattern.step2;
 
 import com.ryz2593.happy.factory_pattern.step1.Shape;
 
