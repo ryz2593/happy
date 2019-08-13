@@ -1,5 +1,7 @@
 package com.ryz2593.happy.factory_pattern;
 
+import com.ryz2593.happy.factory_pattern.step1.Shape;
+
 /**
  * 创建一个工厂，生成基于给定信息的实体类的对象。
  * @author ryz2593
