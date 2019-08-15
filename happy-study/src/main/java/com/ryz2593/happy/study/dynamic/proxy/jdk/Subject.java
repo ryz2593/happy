@@ -9,4 +9,6 @@ package com.ryz2593.happy.study.dynamic.proxy.jdk;
  */
 public interface Subject {
     void doSomething();
+    int sellBook();
+    String speak();
 }

@@ -16,5 +16,9 @@ public class Client {
         // jdk动态代理测试
         Subject subject = new JDKDynamicProxy(new RealSubject()).getProxy();
         subject.doSomething();
+        System.out.println("------------------------------------------");
+        subject.sellBook();
+        System.out.println("------------------------------------------");
+        subject.speak();
     }
 }
