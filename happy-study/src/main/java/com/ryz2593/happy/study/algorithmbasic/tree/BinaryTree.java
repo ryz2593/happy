@@ -1,6 +1,7 @@
 package com.ryz2593.happy.study.algorithmbasic.tree;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 import java.util.Stack;
 
@@ -10,6 +11,33 @@ import java.util.Stack;
  * @desc
  */
 public class BinaryTree {
+
+
+    private static List<BinaryTreeNode> nodeList = null;
+
+    public void createBinaryTree(int[] array) {
+        nodeList = new LinkedList<>();
+        // 将一个数组的值依次转换为Node节点
+        for (int nodeIndex = 0; nodeIndex < array.length; nodeIndex++) {
+            nodeList.add(new BinaryTreeNode(array[nodeIndex]));
+        }
+        // 对前lastParentIndex-1个父节点按照父节点与孩子节点的数字关系建立二叉树
+        for (int parentIndex = 0; parentIndex < array.length / 2 - 1; parentIndex++) {
+            //左孩子
+            nodeList.get(parentIndex).setLeft(nodeList.get(parentIndex * 2 + 1));
+            //右孩子
+            nodeList.get(parentIndex).setRight(nodeList.get(parentIndex * 2 + 2));
+        }
+        // 最后一个父节点:因为最后一个父节点可能没有右孩子，所以单独拿出来处理
+        int lastParentIndex = array.length / 2 - 1;
+        //左孩子
+        nodeList.get(lastParentIndex).setLeft(nodeList.get(lastParentIndex * 2 + 1));
+        //右孩子,如果数组的长度为奇数才建立右孩子
+        if (array.length % 2 == 1) {
+            nodeList.get(lastParentIndex).setRight(nodeList.get(lastParentIndex * 2 + 2));
+        }
+
+    }
 
     /**
      * 先序遍历采用递归的方式
@@ -129,6 +157,7 @@ public class BinaryTree {
 
     /**
      * 层序遍历
+     *
      * @param root
      */
     public void levelOrder(BinaryTreeNode root) {
@@ -161,6 +190,15 @@ public class BinaryTree {
 
 
         BinaryTree tree = new BinaryTree();
+
+        int[] array = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        BinaryTree tree1 = new BinaryTree();
+        tree1.createBinaryTree(array);
+        BinaryTreeNode root = nodeList.get(0);
+        tree1.preOrder(root);
+        System.out.println();
+        tree1.preOrderNonRecursive(root);
+        System.out.println();
 
         System.out.println("----先序遍历----");
         tree.preOrder(node1);

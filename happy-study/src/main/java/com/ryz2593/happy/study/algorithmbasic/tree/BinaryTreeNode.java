@@ -13,6 +13,12 @@ public class BinaryTreeNode {
     public BinaryTreeNode() {
     }
 
+    public BinaryTreeNode(int data) {
+        this.data = data;
+        this.left = null;
+        this.right = null;
+    }
+
     public BinaryTreeNode(int data, BinaryTreeNode left, BinaryTreeNode right) {
         super();
         this.data = data;
