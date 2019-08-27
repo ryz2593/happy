@@ -147,7 +147,7 @@ public class HtmlParser {
         // String body = HtmlBody.getBody(url);
         // System.out.println(body);
 
-        Document doc = Jsoup.parse(readHtml("./index.html"));
+        Document doc = Jsoup.parse(readHtml("D:\\IdeaProjects\\private_source\\happy\\happy-common\\src\\main\\resources\\index.html"));
         // 获取html的标题
         String title = doc.select("title").text();
         System.out.println(title);
@@ -159,7 +159,7 @@ public class HtmlParser {
         for (Element e : elements) {
             System.out.println(e.text());
         }
-        Document doc2 = Jsoup.parse(readHtml("./table.html"));
+        Document doc2 = Jsoup.parse(readHtml("D:\\IdeaProjects\\private_source\\happy\\happy-common\\src\\main\\resources\\table.html"));
         Element table = doc2.select("table").first();
         List<List<String>> list = getTables(table);
         for (List<String> list2 : list) {
