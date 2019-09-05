@@ -35,8 +35,26 @@ public class NumberUtil {
     }
 
     //方法三：
-    public static boolean isNumericWithPattern(String str){
+    public static boolean isNumeric3(String str){
         Pattern pattern = Pattern.compile("[0-9]*");
         return pattern.matcher(str).matches();
+    }
+
+    //方法四：
+    public final static boolean isNumeric4(String s) {
+        if (s != null && !"".equals(s.trim()))
+            return s.matches("^[0-9]*$");
+        else
+            return false;
+    }
+
+    //方法五：用ascii码
+    public static boolean isNumeric5(String str){
+        for(int i=str.length();--i>=0;){
+            int chr=str.charAt(i);
+            if(chr<48 || chr>57)
+                return false;
+        }
+        return true;
     }
 }
