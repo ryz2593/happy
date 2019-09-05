@@ -1,5 +1,7 @@
 package com.ryz2593.happy;
 
+import java.util.regex.Pattern;
+
 /**
  * @autor ryz2593
  * @date 2019/9/5 22:46
@@ -29,6 +31,12 @@ public class NumberUtil {
 
     public static boolean isInteger(String str) {
         Pattern pattern = Pattern.compile("^[-\\+]?[\\d]*$");
+        return pattern.matcher(str).matches();
+    }
+
+    //方法三：
+    public static boolean isNumericWithPattern(String str){
+        Pattern pattern = Pattern.compile("[0-9]*");
         return pattern.matcher(str).matches();
     }
 }
