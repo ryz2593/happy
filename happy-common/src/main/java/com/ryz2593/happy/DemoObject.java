@@ -1,6 +1,5 @@
 package com.ryz2593.happy;
 
-import com.sun.xml.internal.txw2.annotation.XmlCDATA;
 import lombok.Data;
 
 /**
