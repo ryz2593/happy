@@ -11,4 +11,20 @@ import lombok.Data;
 public class DemoObject {
     private Integer id;
     private Integer sort;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getSort() {
+        return sort;
+    }
+
+    public void setSort(Integer sort) {
+        this.sort = sort;
+    }
 }
