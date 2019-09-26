@@ -147,10 +147,10 @@ public class HtmlParser {
         // String body = HtmlBody.getBody(url);
         // System.out.println(body);
 
-        Document doc = Jsoup.parse(readHtml("D:\\IdeaProjects\\private_source\\happy\\happy-common\\src\\main\\resources\\index.html"));
+        Document doc = Jsoup.parse(readHtml("D:\\IdeaProjects\\private_source\\happy\\happy-common\\src\\main\\resources\\7793_cs.html"));
         // 获取html的标题
         String title = doc.select("title").text();
-        System.out.println(title);
+        System.out.println("title = " + title);
         // 获取按钮的文本
         String btnText = doc.select("div div div div div form").select("#su").attr("value");
         System.out.println(btnText);
@@ -164,16 +164,16 @@ public class HtmlParser {
         for (Element element : elements1) {
             System.out.println(element.text());
         }
-        System.out.println("--------------------------------------");
-        Document doc2 = Jsoup.parse(readHtml("D:\\IdeaProjects\\private_source\\happy\\happy-common\\src\\main\\resources\\table.html"));
-        Element table = doc2.select("table").first();
-        List<List<String>> list = getTables(table);
-        for (List<String> list2 : list) {
-            for (String string : list2) {
-                System.out.print(string + ",");
-            }
-            System.out.println();
-        }
+//        System.out.println("--------------------------------------");
+//        Document doc2 = Jsoup.parse(readHtml("D:\\IdeaProjects\\private_source\\happy\\happy-common\\src\\main\\resources\\table.html"));
+//        Element table = doc2.select("table").first();
+//        List<List<String>> list = getTables(table);
+//        for (List<String> list2 : list) {
+//            for (String string : list2) {
+//                System.out.print(string + ",");
+//            }
+//            System.out.println();
+//        }
     }
 
 }
