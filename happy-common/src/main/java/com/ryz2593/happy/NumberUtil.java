@@ -2,6 +2,8 @@ package com.ryz2593.happy;
 
 import java.util.regex.Pattern;
 
+import static java.util.regex.Pattern.*;
+
 /**
  * @autor ryz2593
  * @date 2019/9/5 22:46
@@ -30,30 +32,32 @@ public class NumberUtil {
      */
 
     public static boolean isInteger(String str) {
-        Pattern pattern = Pattern.compile("^[-\\+]?[\\d]*$");
+        Pattern pattern = compile("^[-\\+]?[\\d]*$");
         return pattern.matcher(str).matches();
     }
 
     //方法三：
     public static boolean isNumeric3(String str){
-        Pattern pattern = Pattern.compile("[0-9]*");
+        Pattern pattern = compile("[0-9]*");
         return pattern.matcher(str).matches();
     }
 
     //方法四：
     public final static boolean isNumeric4(String s) {
-        if (s != null && !"".equals(s.trim()))
+        if (s != null && !"".equals(s.trim())) {
             return s.matches("^[0-9]*$");
-        else
+        } else {
             return false;
+        }
     }
 
     //方法五：用ascii码
     public static boolean isNumeric5(String str){
         for(int i=str.length();--i>=0;){
             int chr=str.charAt(i);
-            if(chr<48 || chr>57)
+            if(chr<48 || chr>57) {
                 return false;
+            }
         }
         return true;
     }
