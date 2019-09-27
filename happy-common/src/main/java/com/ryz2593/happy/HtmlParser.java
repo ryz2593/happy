@@ -142,6 +142,12 @@ public class HtmlParser {
         return sb.toString();
     }
 
+    public static String getTitle(String filePath) {
+        Document doc = Jsoup.parse(readHtml(filePath));
+        String title = doc.select("title").text();
+        return title;
+    }
+
     public static void main(String[] args) {
 //         String url = "http://www.baidu.com";
         // String body = HtmlBody.getBody(url);
