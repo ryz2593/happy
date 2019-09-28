@@ -170,16 +170,6 @@ public class HtmlParser {
         for (Element element : elements1) {
             System.out.println(element.text());
         }
-//        System.out.println("--------------------------------------");
-//        Document doc2 = Jsoup.parse(readHtml("D:\\IdeaProjects\\private_source\\happy\\happy-common\\src\\main\\resources\\table.html"));
-//        Element table = doc2.select("table").first();
-//        List<List<String>> list = getTables(table);
-//        for (List<String> list2 : list) {
-//            for (String string : list2) {
-//                System.out.print(string + ",");
-//            }
-//            System.out.println();
-//        }
     }
 
 }
