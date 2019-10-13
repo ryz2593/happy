@@ -8,7 +8,7 @@ package com.ryz2593.happy.singleton_pattern;
 public class Singleton {
     private static Singleton instance;
 
-    private Singleton() {
+    public Singleton() {
     }
 
     /**
