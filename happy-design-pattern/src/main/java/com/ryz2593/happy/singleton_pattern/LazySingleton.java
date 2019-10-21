@@ -5,33 +5,33 @@ package com.ryz2593.happy.singleton_pattern;
  * @date 2019/9/5
  * @desc
  */
-class Singleton {
-	//ÀÁººÊ½
-	private static Singleton instance = null;
-	private Singleton (){}
-	//¶àÏß³ÌÇé¿öÏÂ£¬·ÇÏß³Ì°²È«
-	public static Singleton getInstance() {
+class lazySingleton {
+	//ï¿½ï¿½ï¿½ï¿½Ê½
+	private static lazySingleton instance = null;
+	private lazySingleton (){}
+	//ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½ï¿½ï¿½Â£ï¿½ï¿½ï¿½ï¿½ß³Ì°ï¿½È«d
+	public static lazySingleton getInstance() {
 		if(instance == null) {
-			instance = new Singleton();
+			instance = new lazySingleton();
 		}
 		return instance;
 	}
 	
-	//Ïß³Ì°²È«
-	public static synchronized Singleton getInstance() {
+	//ï¿½ß³Ì°ï¿½È«
+	public static synchronized lazySingleton getInstance1() {
 		if(instance == null) {
-			instance = new Singleton();
+			instance = new lazySingleton();
 		}
 		return instance;
 	}
 	
-	//Ë«ÖØ¼ìÑé 
-	public static Singleton getInstance() {
+	//Ë«ï¿½Ø¼ï¿½ï¿½ï¿½ 
+	public static lazySingleton getInstance2() {
 		if(instance == null) {
-			//ÕâÀïËø×¡µÄÊÇSingleton
-			synchronized(Singleton.class) {
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¡ï¿½ï¿½ï¿½ï¿½Singleton
+			synchronized(lazySingleton.class) {
 				if(instance == null) {
-					instance = new Singleton();
+					instance = new lazySingleton();
 				}
 			}
 		}
