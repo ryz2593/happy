@@ -9,10 +9,7 @@ import java.sql.Connection;
  * @date 2019/7/19
  * @desc
  */
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+
 @ToString
 public class PooledConnection {
     //连接对象
@@ -20,6 +17,30 @@ public class PooledConnection {
 
     //连接状态
     private boolean state;
+
+    public PooledConnection() {
+    }
+
+    public PooledConnection(Connection connection, boolean state) {
+        this.connection = connection;
+        this.state = state;
+    }
+
+    public Connection getConnection() {
+        return connection;
+    }
+
+    public void setConnection(Connection connection) {
+        this.connection = connection;
+    }
+
+    public boolean isState() {
+        return state;
+    }
+
+    public void setState(boolean state) {
+        this.state = state;
+    }
 
     public void releaseConnection() {
         System.out.println("连接释放。。。。");
