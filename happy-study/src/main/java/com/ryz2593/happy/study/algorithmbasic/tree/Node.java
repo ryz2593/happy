@@ -11,11 +11,12 @@ public class Node {
     Node rightChild; //右子节点的引用
     boolean isDelete;//表示节点是否被删除
 
-    public Node(int data){
+    public Node(int data) {
         this.data = data;
     }
+
     //打印节点内容
-    public void display(){
+    public void display() {
         System.out.println(data);
     }
 
