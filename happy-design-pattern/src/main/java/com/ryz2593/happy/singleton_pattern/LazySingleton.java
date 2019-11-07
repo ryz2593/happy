@@ -6,7 +6,7 @@ package com.ryz2593.happy.singleton_pattern;
  * @desc
  */
 class lazySingleton {
-	//����ʽ
+	//
 	private static lazySingleton instance = null;
 	private lazySingleton (){}
 	//���߳�����£����̰߳�ȫd
@@ -17,7 +17,7 @@ class lazySingleton {
 		return instance;
 	}
 	
-	//�̰߳�ȫ
+	//
 	public static synchronized lazySingleton getInstance1() {
 		if(instance == null) {
 			instance = new lazySingleton();
@@ -25,7 +25,7 @@ class lazySingleton {
 		return instance;
 	}
 	
-	//˫�ؼ��� 
+	//
 	public static lazySingleton getInstance2() {
 		if(instance == null) {
 			//������ס����Singleton
