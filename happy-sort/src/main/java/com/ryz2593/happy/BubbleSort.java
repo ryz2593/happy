@@ -37,7 +37,6 @@ public class BubbleSort {
                 if (array[j + 1] < array[j]) {
 
                     //交换数组array的j和j+1位置的数据
-
                     int temp = array[j + 1];
                     array[j + 1] = array[j];
                     array[j] = temp;
