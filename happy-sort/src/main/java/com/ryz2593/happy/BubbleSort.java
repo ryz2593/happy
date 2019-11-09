@@ -35,7 +35,9 @@ public class BubbleSort {
             //内层：每次循环需要两两比较的次数，每次比较后，都会将当前最大的数放到最后位置，所以每次比较次数递减一次
             for (int j = 0; j < array.length - 1 - i; j++)
                 if (array[j + 1] < array[j]) {
+
                     //交换数组array的j和j+1位置的数据
+
                     int temp = array[j + 1];
                     array[j + 1] = array[j];
                     array[j] = temp;
