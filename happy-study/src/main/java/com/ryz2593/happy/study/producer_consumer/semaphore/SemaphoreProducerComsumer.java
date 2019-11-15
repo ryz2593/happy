@@ -2,20 +2,20 @@ package com.ryz2593.happy.study.producer_consumer.semaphore;
 
 public class SemaphoreProducerComsumer {
     public static void main(String[] args) {
-        final Buffer buffer = new Buffer();
-        startProducer(buffer);
-        startProducer(buffer);
-        startConsumer(buffer);
-        startConsumer(buffer);
+        final Storage storage = new Storage();
+        startProducer(storage);
+        startProducer(storage);
+        startConsumer(storage);
+        startConsumer(storage);
     }
 
-    public static void startProducer(final Buffer buffer) {
+    public static void startProducer(final Storage storage) {
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
                     while (true) {
-                        buffer.put();
+                        storage.put();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -24,13 +24,13 @@ public class SemaphoreProducerComsumer {
         }).start();
     }
 
-    public static void startConsumer(final Buffer buffer) {
+    public static void startConsumer(final Storage storage) {
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
                     while (true) {
-                        buffer.get();
+                        storage.get();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
