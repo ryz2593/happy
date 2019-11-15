@@ -1,4 +1,4 @@
-package com.ryz2593.happy.study.producer_consumer.waitnotify;
+package com.ryz2593.happy.study.producer_consumer.synchronized_wait_notify;
 
 import com.google.common.collect.Lists;
 
