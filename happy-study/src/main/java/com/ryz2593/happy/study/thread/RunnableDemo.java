@@ -1,6 +1,11 @@
 package com.ryz2593.happy.study.thread;
 
 /**
+ *
+ * 这里，threadOb 是一个实现 Runnable 接口的类的实例，并且 threadName 指定新线程的名字。
+ *
+ * 新线程创建之后，你调用它的 start() 方法它才会运行
+ * 
  * @autor ryz2593
  * @date 2019/11/17 21:11
  * @desc
