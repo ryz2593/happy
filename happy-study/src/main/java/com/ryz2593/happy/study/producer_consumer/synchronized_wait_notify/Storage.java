@@ -1,9 +1,7 @@
 package com.ryz2593.happy.study.producer_consumer.synchronized_wait_notify;
 
 import com.google.common.collect.Lists;
-
 import java.util.LinkedList;
-
 /**
  * @author ryz2593
  */
@@ -21,8 +19,8 @@ public class Storage {
     public void produce() {
         synchronized (list) {
             while (list.size() + 1 > MAX_SIZE) {
-                System.out.println("【生产者" + Thread.currentThread().getName()
-                        + "】仓库已满");
+                System.out.println("[producer" + Thread.currentThread().getName()
+                        + "] storage is full");
                 try {
                         list.wait();
                 } catch (InterruptedException e) {
@@ -30,8 +28,8 @@ public class Storage {
                 }
             }
             list.add(new Object());
-            System.out.println("【生产者" + Thread.currentThread().getName()
-                    + "】生产一个产品，现库存" + list.size());
+            System.out.println("[Consumer" + Thread.currentThread().getName()
+                    + "]生产一个产品，现库存" + list.size());
             list.notifyAll();
         }
     }
@@ -39,8 +37,8 @@ public class Storage {
     public void consumer() {
         synchronized (list) {
             while (list.size() == 0) {
-                System.out.println("【消费者" + Thread.currentThread().getName()
-                        + "】仓库为空");
+                System.out.println("[Consumer" + Thread.currentThread().getName()
+                        + "] storage is empty");
                 try {
                     list.wait();
                 } catch (InterruptedException e) {
@@ -48,8 +46,8 @@ public class Storage {
                 }
             }
             list.remove();
-            System.out.println("【消费者" + Thread.currentThread().getName()
-                    + "】消费一个产品，现库存" + list.size());
+            System.out.println("[Consumer" + Thread.currentThread().getName()
+                    + "]消费一个产品，现库存" + list.size());
             list.notifyAll();
         }
     }
