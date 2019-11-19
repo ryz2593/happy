@@ -149,27 +149,27 @@ public class HtmlParser {
     }
 
     public static void main(String[] args) {
-//         String url = "http://www.baidu.com";
-        // String body = HtmlBody.getBody(url);
-        // System.out.println(body);
+         String url = "https://blog.csdn.net/mengqingming1/article/details/102877379";
+         String body = HtmlBody.getBody(url);
+         System.out.println(body);
 
-        Document doc = Jsoup.parse(readHtml("D:\\IdeaProjects\\private_source\\happy\\happy-common\\src\\main\\resources\\100891_en.html"));
-        // 获取html的标题
-        String title = doc.select("title").text();
-        System.out.println("title = " + title);
-        // 获取按钮的文本
-        String btnText = doc.select("div div div div div form").select("#su").attr("value");
-        System.out.println(btnText);
-        // 获取导航栏文本
-        Elements elements = doc.select(".head_wrapper").select("#u1").select("a");
-        for (Element e : elements) {
-            System.out.println(e.text());
-        }
-        Elements elements1 = doc.select("#wrapper").select("#ftCon").select("#ftConw").select("#lh").select("a");
-        System.out.println("--------------------------------------");
-        for (Element element : elements1) {
-            System.out.println(element.text());
-        }
+//        Document doc = Jsoup.parse(readHtml("D:\\IdeaProjects\\private_source\\happy\\happy-common\\src\\main\\resources\\100891_en.html"));
+//        // 获取html的标题
+//        String title = doc.select("title").text();
+//        System.out.println("title = " + title);
+//        // 获取按钮的文本
+//        String btnText = doc.select("div div div div div form").select("#su").attr("value");
+//        System.out.println(btnText);
+//        // 获取导航栏文本
+//        Elements elements = doc.select(".head_wrapper").select("#u1").select("a");
+//        for (Element e : elements) {
+//            System.out.println(e.text());
+//        }
+//        Elements elements1 = doc.select("#wrapper").select("#ftCon").select("#ftConw").select("#lh").select("a");
+//        System.out.println("--------------------------------------");
+//        for (Element element : elements1) {
+//            System.out.println(element.text());
+//        }
     }
 
 }

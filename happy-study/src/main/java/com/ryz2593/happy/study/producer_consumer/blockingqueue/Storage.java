@@ -14,8 +14,8 @@ public class Storage {
     public void producer() {
         try {
             list.put(new Object());
-            System.out.println("【生产者" + Thread.currentThread().getName()
-                    + "】生产一个产品，现库存" + list.size());
+            System.out.println("[Producer" + Thread.currentThread().getName()
+                    + "]生产一个产品，现库存" + list.size());
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -24,8 +24,8 @@ public class Storage {
     public void consumer() {
         try {
             list.take();
-            System.out.println("【消费者" + Thread.currentThread().getName()
-                    + "】消费了一个产品，现库存" + list.size());
+            System.out.println("[Consumer" + Thread.currentThread().getName()
+                    + "]消费了一个产品，现库存" + list.size());
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
