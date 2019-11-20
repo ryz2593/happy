@@ -35,7 +35,6 @@ public class RedisWithReentrantLock {
     }
 
     public boolean lock(String key) {
-        System.out.println("lock() = " + key);
         Map<String, Integer> refs = currentLockers();
         Integer refCnt = refs.get(key);
         if (refCnt != null) {
@@ -51,7 +50,6 @@ public class RedisWithReentrantLock {
     }
 
     public boolean unlock(String key) {
-        System.out.println("unlock() = " + key);
         Map<String, Integer> refs = currentLockers();
         Integer refCnt = refs.get(key);
         if (refCnt == null) {
@@ -69,12 +67,12 @@ public class RedisWithReentrantLock {
 
 
     public static void main(String[] args) {
-        Jedis jedis = new Jedis();
+        Jedis jedis = new Jedis("172.17.28.129");
         RedisWithReentrantLock redis = new RedisWithReentrantLock(jedis);
-        System.out.println(redis.lock("codehole"));
-//        System.out.println(redis.lock("codehole"));
-//        System.out.println(redis.unlock("codehole"));
-        System.out.println(redis.unlock("codehole"));
+        System.out.println(redis.lock("looo"));
+        System.out.println(redis.lock("looo"));
+        System.out.println(redis.unlock("looo"));
+        System.out.println(redis.unlock("looo"));
 
     }
 }
