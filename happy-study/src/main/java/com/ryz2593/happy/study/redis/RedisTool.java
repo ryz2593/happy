@@ -41,7 +41,7 @@ public class RedisTool {
     }
 
     public static void main(String[] args) {
-        Jedis jedis = new Jedis();
+        Jedis jedis = new Jedis("172.17.28.129");
         System.out.println(tryGetDistributedLock(jedis, "looo", "rrr", 5));
         System.out.println(tryGetDistributedLock(jedis, "looo", "rrr", 5));
         System.out.println(releaseDistributedLock(jedis, "looo", "rrr"));
