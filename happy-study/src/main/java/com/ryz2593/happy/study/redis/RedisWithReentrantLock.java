@@ -33,4 +33,40 @@ public class RedisWithReentrantLock {
         lockers.set(new HashMap<String, Integer>());
         return lockers.get();
     }
+
+    public boolean lock(String key) {
+        Map<String, Integer> refs = currentLockers();
+        Integer refCnt = refs.get(key);
+        if (refCnt != null) {
+            refs.put(key, refCnt + 1);
+            return true;
+        }
+        boolean ok = this._lock(key);
+        if (!ok) {
+            return false;
+        }
+        refs.put(key, 1);
+        return true;
+    }
+
+    public boolean unlock(String key) {
+        Map<String, Integer> refs = currentLockers();
+        Integer refCnt = refs.get(key);
+        if (refCnt == null) {
+            return false;
+        }
+        refCnt -= 1;
+        if (refCnt > 0) {
+            refs.put(key, refCnt);
+        } else {
+            refs.remove(key);
+            this._unlock(key);
+        }
+        return true;
+    }
+
+
+    public static void main(String[] args) {
+        
+    }
 }
