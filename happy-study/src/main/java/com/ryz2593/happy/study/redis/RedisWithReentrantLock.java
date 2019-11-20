@@ -2,6 +2,7 @@ package com.ryz2593.happy.study.redis;
 
 import redis.clients.jedis.Jedis;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -24,5 +25,12 @@ public class RedisWithReentrantLock {
         jedis.del(key);
     }
 
-    
+    private Map<String, Integer> currentLockers() {
+        Map<String, Integer> refs = lockers.get();
+        if (refs != null) {
+            return refs;
+        }
+        lockers.set(new HashMap<String, Integer>());
+        return lockers.get();
+    }
 }
