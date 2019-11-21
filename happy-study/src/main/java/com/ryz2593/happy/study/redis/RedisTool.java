@@ -35,7 +35,10 @@ public class RedisTool {
      * @return 是否释放成功
      */
     public static boolean releaseDistributedLock(Jedis jedis, String key, String requestId) {
+
         String script = "if redis.call('get', KEYS[1]) == ARGV[1] then return redis.call('del', KEYS[1]) else return 0 end";
+        //在eval命令执行Lua代码的时候，Lua代码将被当成一个命令去执行，并且直到eval命令执行完成，Redis才会执行其他命令。
+        //确保操作是原子性的
         Object eval = jedis.eval(script, Collections.singletonList(key), Collections.singletonList(requestId));
         return RELEASE_SUCCESS.equals(eval);
     }
