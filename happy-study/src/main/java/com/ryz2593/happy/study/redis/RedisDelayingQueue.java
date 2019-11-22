@@ -2,7 +2,6 @@ package com.ryz2593.happy.study.redis;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
-import javafx.concurrent.Task;
 import redis.clients.jedis.Jedis;
 
 import java.lang.reflect.Type;
@@ -17,8 +16,10 @@ public class RedisDelayingQueue<T> {
         public String id;
         public T msg;
     }
+
     //fastjson序列化对象中存在generic类型时，需要使用TypeReference
-    private Type TaskType = new TypeReference<TaskItem<T>>() {}.getType();
+    private Type TaskType = new TypeReference<TaskItem<T>>() {
+    }.getType();
     private Jedis jedis;
     private String queueKey;
 
@@ -65,5 +66,32 @@ public class RedisDelayingQueue<T> {
         System.out.println(msg);
     }
 
-    
+    public static void main(String[] args) {
+        Jedis jedis = new Jedis("172.17.28.129");
+        final RedisDelayingQueue<String> queue = new RedisDelayingQueue<>(jedis, "q-demo");
+        Thread producer = new Thread() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 10; i++) {
+                    queue.delay("codehole" + i);
+                }
+            }
+        };
+        Thread consumer = new Thread() {
+            @Override
+            public void run() {
+                queue.loop();
+            }
+        };
+        producer.start();
+        consumer.start();
+        try {
+            producer.join();
+            Thread.sleep(6000);
+            consumer.interrupt();
+            consumer.join();
+        } catch (InterruptedException e) {
+        }
+    }
+
 }
