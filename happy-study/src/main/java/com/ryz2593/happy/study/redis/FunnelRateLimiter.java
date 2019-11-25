@@ -5,9 +5,10 @@ import com.google.common.collect.Maps;
 import java.util.Map;
 
 /**
- * 漏斗限流
+ * 漏斗限流：常用的限流方法之一
  * 漏斗的剩余空间代表着当前行为可以持续进行的数量，
  * 漏嘴的流水速率代表着系统允许该行为的最大频率
+ * 
  *
  * @author ryz2593
  */
