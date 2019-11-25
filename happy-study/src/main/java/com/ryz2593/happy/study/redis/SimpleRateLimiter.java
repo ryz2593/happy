@@ -26,6 +26,7 @@ public class SimpleRateLimiter {
      * 因为这几个连续的Redis操作都是针对同一个key的，使用pipeline可以显著提升Redis的存取效率。
      * 但这种方案也有缺点，因为要记录时间窗口内所有的行为记录，如果这个量很大，
      * 比如“限定60s内操作不超过100万次”之类，它是不适合做这样的限流的，因为会消耗大量的存储空间。
+     *
      * @param userId
      * @param actionKey
      * @param period
@@ -35,17 +36,21 @@ public class SimpleRateLimiter {
      */
     public boolean isActionAllowed(String userId, String actionKey, int period, int maxCount) throws IOException {
         String key = String.format("hist:%s:%s", userId, actionKey);
-        long nowTs  = System.currentTimeMillis();
+        long nowTs = System.currentTimeMillis();
         Pipeline pipe = jedis.pipelined();
         pipe.multi();
-        
+        //value 和 score 都使用毫秒时间戳
         pipe.zadd(key, nowTs, "" + nowTs);
-
+        //移除时间窗口之前的行为记录，剩下的都是时间窗口内的
         pipe.zremrangeByScore(key, 0, nowTs - period * 1000);
+        //获取窗口内的行为数量
         Response<Long> count = pipe.zcard(key);
+        //设置zset过期时间，避免冷用户持续占用内存
+        //过期时间应该等于时间窗口的长度，再多宽限1s
         pipe.expire(key, period + 1);
         pipe.exec();
         pipe.close();
+        //比较数量是否超过允许的最大值
         return count.get() <= maxCount;
     }
 
