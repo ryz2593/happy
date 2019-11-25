@@ -22,7 +22,7 @@ public class SimpleRateLimiter {
      * @param actionKey
      * @param period
      * @param maxCount
-     * @return
+     * @return 当前的行为是否被允许
      * @throws IOException
      */
     public boolean isActionAllowed(String userId, String actionKey, int period, int maxCount) throws IOException {
