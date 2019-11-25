@@ -8,7 +8,8 @@ import java.io.IOException;
 
 /**
  * 使用Redis实现简单限流策略
- *
+ * 使用滑动时间窗口（定宽），只需要保留这个时间窗口，窗口之外的数据都可以砍掉。
+ * 如果是冷用户滑动时间窗口内的行为是空记录，那么这个zset就可以从内存中移除，不再占用空间。
  * @author ryz2593
  */
 public class SimpleRateLimiter {
