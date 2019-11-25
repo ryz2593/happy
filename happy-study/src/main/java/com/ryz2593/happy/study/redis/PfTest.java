@@ -11,10 +11,10 @@ public class PfTest {
     public static void main(String[] args) {
         String key = "codehole";
         Jedis jedis = new Jedis("172.17.28.129");
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < 100; i++) {
             jedis.pfadd(key, "user" + i);
             long total = jedis.pfcount(key);
-            System.out.printf("%d %d\n", 10000, total);
+            System.out.printf("%d %d\n", 100, total);
         }
         jedis.close();
     }
