@@ -8,7 +8,6 @@ import java.util.Map;
  * 漏斗限流：常用的限流方法之一
  * 漏斗的剩余空间代表着当前行为可以持续进行的数量，
  * 漏嘴的流水速率代表着系统允许该行为的最大频率
- * 
  *
  * @author ryz2593
  */
@@ -69,8 +68,9 @@ public class FunnelRateLimiter {
     }
 
     private static Map<String, Funnel> funnels = Maps.newHashMap();
+
     public static boolean isActionAllowed(String userId, String actionKey, int capacity, float leakingRate) {
-        String key =  String.format("%s:%s", userId, actionKey);
+        String key = String.format("%s:%s", userId, actionKey);
         Funnel funnel = funnels.get(key);
         if (funnel == null) {
             funnel = new Funnel(capacity, leakingRate);
@@ -83,7 +83,7 @@ public class FunnelRateLimiter {
 
     public static void main(String[] args) {
         for (int i = 0; i < 50; i++) {
-            System.out.println(isActionAllowed("ryz2593","login", 10,2.5f));
+            System.out.println(isActionAllowed("ryz2593", "login", 10, 2.5f));
         }
     }
 }
