@@ -12,9 +12,18 @@ import java.util.Set;
  * @author ryz2593
  */
 public class FileUtil {
+
+    /**
+     * 获取文件后缀
+     * @param file
+     * @return
+     */
+    public static String getFileSuffix(File file) {
+        return file.getName().substring(file.getName().lastIndexOf(".") + 1);
+    }
+
     /**
      * 读取文件
-     *
      * @param Path
      * @return
      */
@@ -97,7 +106,7 @@ public class FileUtil {
         //generateFileMd5(file);
 
         getFiles(file, "ini");
-
+        System.out.println(getFileSuffix(new File("C:\\Users\\ryz2593\\Desktop\\eyeshadow_upper(5)\\web_aa001_upper.ini")));
         System.out.println(ReadFile("C:\\Users\\ryz2593\\Desktop\\eyeshadow_upper(5)\\web_aa001_upper.ini"));
     }
 }
