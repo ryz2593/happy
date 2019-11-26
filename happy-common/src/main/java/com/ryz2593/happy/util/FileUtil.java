@@ -1,9 +1,12 @@
 package com.ryz2593.happy.util;
 
 import com.google.common.collect.Lists;
+import org.apache.commons.codec.digest.DigestUtils;
 
 import java.io.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author ryz2593
@@ -62,5 +65,24 @@ public class FileUtil {
             }
         }
         return files;
+    }
+
+    /**
+     * @param fileDir
+     * @throws IOException
+     */
+    public static void generateFileMd5(File fileDir) throws IOException {
+        File[] fs = fileDir.listFiles();
+        for (File f : fs) {
+            Set<String> list = new HashSet<String>();
+            list.add(f.getAbsolutePath());
+
+            if (f.isFile()) {
+                String md5 = DigestUtils.md5Hex(new FileInputStream(f));
+                System.out.println(md5);
+            } else {
+                generateFileMd5(f);
+            }
+        }
     }
 }
