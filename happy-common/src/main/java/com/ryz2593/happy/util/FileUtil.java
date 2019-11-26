@@ -1,9 +1,9 @@
 package com.ryz2593.happy.util;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import com.google.common.collect.Lists;
+
+import java.io.*;
+import java.util.List;
 
 /**
  * @author ryz2593
@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
 public class FileUtil {
     /**
      * 读取文件
+     *
      * @param Path
      * @return
      */
@@ -38,5 +39,28 @@ public class FileUtil {
             }
         }
         return laststr.toString();
+    }
+
+    /**
+     * 获取文件夹下制定文件后缀的文件列表
+     *
+     * @param fileDir
+     * @param suffix
+     * @return
+     */
+    public static List<File> getFiles(File fileDir, String suffix) {
+        List<File> files = Lists.newArrayList();
+        File[] fs = fileDir.listFiles();
+        for (File f : fs) {
+            if (f.isFile()) {
+                if (suffix.equalsIgnoreCase(f.getName().substring(f.getName().lastIndexOf(".") + 1))) {
+                    files.add(f);
+                }
+            } else {
+                List<File> fts = getFiles(f, suffix);
+                files.addAll(fts);
+            }
+        }
+        return files;
     }
 }
