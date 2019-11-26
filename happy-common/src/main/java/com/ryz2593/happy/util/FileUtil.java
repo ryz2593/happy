@@ -71,18 +71,33 @@ public class FileUtil {
      * @param fileDir
      * @throws IOException
      */
-    public static void generateFileMd5(File fileDir) throws IOException {
+    public static void generateFileMd5(File fileDir) {
         File[] fs = fileDir.listFiles();
         for (File f : fs) {
             Set<String> list = new HashSet<String>();
             list.add(f.getAbsolutePath());
 
             if (f.isFile()) {
-                String md5 = DigestUtils.md5Hex(new FileInputStream(f));
-                System.out.println(md5);
+                String md5 = null;
+                try {
+                    md5 = DigestUtils.md5Hex(new FileInputStream(f));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                System.out.println(f.getName() + ", " + md5);
             } else {
                 generateFileMd5(f);
             }
         }
+    }
+
+    public static void main(String[] args) {
+        String templateListFolder = "C:\\Users\\ryz2593\\Desktop\\eyeshadow_upper(5)";
+        File file = new File(templateListFolder);
+        //generateFileMd5(file);
+
+        getFiles(file, "ini");
+
+        System.out.println(ReadFile("C:\\Users\\ryz2593\\Desktop\\eyeshadow_upper(5)\\web_aa001_upper.ini"));
     }
 }
