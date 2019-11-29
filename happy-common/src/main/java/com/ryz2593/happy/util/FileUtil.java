@@ -77,6 +77,7 @@ public class FileUtil {
     }
 
     /**
+     * 计算文件的md5值
      * @param fileDir
      * @throws IOException
      */
