@@ -10,7 +10,7 @@ import java.util.Map;
  *
  * @author ryz2593
  */
-public class HashMapUtil {
+public class HashMapLoop {
     public static void main(String[] args) {
         Map<String, Integer> map = Maps.newHashMap();
         map.put("A", 100);
