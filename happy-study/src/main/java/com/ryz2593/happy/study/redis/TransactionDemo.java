@@ -34,8 +34,10 @@ public class TransactionDemo {
             jedis.watch(key);
             int value = Integer.parseInt(jedis.get(key));
             value *= 2;
+            //multi指示事务的开始
             Transaction transaction = jedis.multi();
             transaction.set(key, String.valueOf(value));
+            //exec指示事务的执行
             List<Object> result = transaction.exec();
             if (result != null) {
                 //成功了
