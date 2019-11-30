@@ -75,19 +75,20 @@ public class Race implements Callable<Integer> {
         // new 两个线程,固定线程
         ExecutorService service = Executors.newFixedThreadPool(2);
 
-        // 需要获取返回值的时候使用 线程.submit(Callable<T>) 返回 Futrue 对象，使用 Futrue.get() 方法获取返回值
-        Future<Integer> tortoisSer = service.submit(tortoise);
+        // 需要获取返回值的时候使用线程.submit(Callable<T>) 返回 Futrue 对象，
+        // 使用 Future.get() 方法获取返回值
+        Future<Integer> tortoiseSer = service.submit(tortoise);
         Future<Integer> rabbitSer = service.submit(rabbit);
 
         // 线程休眠5秒，五秒后停止赛跑
-        Thread.sleep(5000);
+        Thread.sleep(5000L);
         tortoise.setFlag(false);
         rabbit.setFlag(false);
 
-        int tortoisStep = tortoisSer.get();
+        int tortoiseStep = tortoiseSer.get();
         int rabbitStep = rabbitSer.get();
 
-        System.out.println("乌龟一共跑了--" + tortoisStep + "--步");
+        System.out.println("乌龟一共跑了--" + tortoiseStep + "--步");
         System.out.println("兔子一共跑了--" + rabbitStep + "--步");
 
         // 关闭服务，ExecuteServer 执行完毕之后并不会自己关闭服务，需要手动关闭
