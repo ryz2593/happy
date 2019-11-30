@@ -6,6 +6,7 @@ import redis.clients.jedis.Transaction;
 import java.util.List;
 
 /**
+ * Redis禁止在multi和exec之间执行watch指令，必须在multi之前盯住关键变量，否则会出错。
  * @autor ryz2593
  * @date 2019/11/30 22:19
  * @desc
