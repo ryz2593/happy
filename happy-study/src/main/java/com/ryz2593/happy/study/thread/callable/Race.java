@@ -90,7 +90,7 @@ public class Race implements Callable<Integer> {
         System.out.println("乌龟一共跑了--" + tortoisStep + "--步");
         System.out.println("兔子一共跑了--" + rabbitStep + "--步");
 
-// 关闭服务，ExecuteServer 执行完毕之后并不会自己关闭服务，需要手动关闭
+        // 关闭服务，ExecuteServer 执行完毕之后并不会自己关闭服务，需要手动关闭
         service.shutdown();
     }
 }
