@@ -1,6 +1,9 @@
 package com.ryz2593.happy.study.redis;
 
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.Transaction;
+
+import java.util.List;
 
 /**
  * @autor ryz2593
@@ -20,6 +23,17 @@ public class TransactionDemo {
 
     private static int doubleAccount(Jedis jedis, String userId) {
         String key = keyFor(userId);
+        while (true){
+            jedis.watch(key);
+            int value = Integer.parseInt(jedis.get(key));
+            value *= 2;
+            Transaction transaction = jedis.multi();
+            transaction.set(key, String.valueOf(value));
+            List<Object> result = transaction.exec();
+            if (result != null) {
+                break;
+            }
+        }
         return Integer.parseInt(jedis.get(key));
     }
 
