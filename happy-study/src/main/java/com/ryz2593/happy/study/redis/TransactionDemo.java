@@ -37,9 +37,11 @@ public class TransactionDemo {
             transaction.set(key, String.valueOf(value));
             List<Object> result = transaction.exec();
             if (result != null) {
+                //成功了
                 break;
             }
         }
+        //重新获取余额
         return Integer.parseInt(jedis.get(key));
     }
 
