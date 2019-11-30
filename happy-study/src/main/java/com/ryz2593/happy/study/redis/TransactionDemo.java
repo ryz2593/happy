@@ -21,6 +21,12 @@ public class TransactionDemo {
         jedis.close();
     }
 
+    /**
+     * 实现对余额加倍操作
+     * @param jedis
+     * @param userId
+     * @return
+     */
     private static int doubleAccount(Jedis jedis, String userId) {
         String key = keyFor(userId);
         while (true){
