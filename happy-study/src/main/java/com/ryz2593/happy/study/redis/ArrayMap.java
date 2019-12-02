@@ -4,6 +4,10 @@ import com.google.common.collect.Lists;
 
 import java.util.List;
 
+/**
+ * 使用数组来模拟HashMap的增删改操作
+ * @author ryz2593
+ */
 public class ArrayMap<K,V> {
     private List<K> keys = Lists.newArrayList();
     private List<V> values = Lists.newArrayList();
@@ -38,5 +42,15 @@ public class ArrayMap<K,V> {
             }
         }
         return null;
+    }
+
+    public static void main(String[] args) {
+        ArrayMap<String, Integer> arrayMap = new ArrayMap<>();
+        arrayMap.put("A", 90);
+        arrayMap.put("B", 80);
+        System.out.println(arrayMap.keys.size());
+        System.out.println(arrayMap.get("B"));
+        arrayMap.delete("A");
+        System.out.println(arrayMap.keys.size());
     }
 }
