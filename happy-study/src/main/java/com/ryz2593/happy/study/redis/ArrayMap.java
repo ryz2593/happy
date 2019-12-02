@@ -30,5 +30,13 @@ public class ArrayMap<K,V> {
         return null;
     }
 
-    
+    public V delete(K k) {
+        for (int i = 0; i < keys.size(); i++) {
+            if (keys.get(i).equals(k)) {
+                keys.remove(i);
+                return values.remove(i);
+            }
+        }
+        return null;
+    }
 }
