@@ -37,6 +37,16 @@ public class Lambda {
         return digits;
     }
 
+    /**
+     * 将int数组转成List<Integer>
+     * @param array
+     * @return
+     */
+    private static List<Integer> array2List(int[] array) {
+        List<Integer> list = Arrays.stream(array).boxed().collect(Collectors.toList());
+        return list;
+    }
+
 
 
 
