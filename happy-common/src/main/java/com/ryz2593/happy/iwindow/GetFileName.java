@@ -1,8 +1,10 @@
-package com.ryz2593.happy;
+package com.ryz2593.happy.iwindow;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.ryz2593.happy.iwindow.HtmlParser;
+import com.ryz2593.happy.iwindow.IwindowInfo;
 import com.ryz2593.happy.util.FileUtil;
 
 import java.io.File;
