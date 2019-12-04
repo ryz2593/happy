@@ -5,7 +5,8 @@ import java.util.regex.Pattern;
 import static java.util.regex.Pattern.*;
 
 /**
- * @autor ryz2593
+ * 判断字符串是否为数值类型
+ * @author ryz2593
  * @date 2019/9/5 22:46
  * @desc
  */
