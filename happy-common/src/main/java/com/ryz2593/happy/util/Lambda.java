@@ -24,9 +24,20 @@ public class Lambda {
         return mList;
     }
 
+    /**
+     * 将数字字符串转成int[]
+     * @param str
+     * @return
+     */
+    private static int[] string2Array(String str) {
+        int[] digits = Arrays.stream(str.split("\\."))
+                .mapToInt(t -> Integer.valueOf(t.trim()))
+                .boxed().collect(Collectors.toList())
+                .stream().mapToInt(Integer::valueOf).toArray();
+        return digits;
+    }
 
 
-    
 
 
 }
