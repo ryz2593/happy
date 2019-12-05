@@ -1,7 +1,8 @@
-package com.ryz2593.happy;
+package com.ryz2593.happy.util;
 
 import com.google.common.collect.Lists;
 import com.sun.deploy.util.StringUtils;
+import lombok.Data;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -14,6 +15,28 @@ import java.util.stream.Collectors;
  * @desc
  */
 public class StringListArrayTransferUtil {
+
+    @Data
+    public class DemoObject {
+        private Integer id;
+        private Integer sort;
+
+        public Integer getId() {
+            return id;
+        }
+
+        public void setId(Integer id) {
+            this.id = id;
+        }
+
+        public Integer getSort() {
+            return sort;
+        }
+
+        public void setSort(Integer sort) {
+            this.sort = sort;
+        }
+    }
 
     public static void main(String[] args) {
         String productTypes = "1";
