@@ -1,0 +1,17 @@
+package com.ryz2593.happy.study.redis;
+
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
+
+public class JedisTest {
+    public static void main(String[] args) {
+        JedisPool pool = new JedisPool();
+        Jedis jedis = pool.getResource();
+        doSomething(jedis);
+        jedis.close();
+    }
+
+    private static void doSomething(Jedis jedis) {
+        //code it here
+    }
+}
