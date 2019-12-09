@@ -7,7 +7,7 @@ import redis.clients.jedis.JedisPool;
  *JedisPool 使用
  * @author ryz2593
  */
-public class JedisTest {
+public class JedisTest1 {
     public static void main(String[] args) {
         JedisPool pool = new JedisPool();
         //取JedisPool里面的jedis连接时，使用try-with-resource语句来保护Jedis对象
