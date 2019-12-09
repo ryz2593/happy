@@ -10,9 +10,9 @@ import redis.clients.jedis.JedisPool;
 public class JedisTest {
     public static void main(String[] args) {
         JedisPool pool = new JedisPool();
-        Jedis jedis = pool.getResource();
-        doSomething(jedis);
-        jedis.close();
+        try (Jedis jedis = pool.getResource()){
+            doSomething(jedis);
+        }
     }
 
     private static void doSomething(Jedis jedis) {
