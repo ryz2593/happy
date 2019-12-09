@@ -1,4 +1,4 @@
-package com.ryz2593.happy.study.redis;
+package com.ryz2593.happy.study.redis.pool;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
