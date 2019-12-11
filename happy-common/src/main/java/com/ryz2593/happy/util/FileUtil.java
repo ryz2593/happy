@@ -28,6 +28,25 @@ public class FileUtil {
     }
 
     /**
+     * @param path 
+     * @return
+     */
+    public static boolean readFile(String path) {
+        try {
+            BufferedReader in = new BufferedReader(new FileReader(path));
+            String str;
+            while ((str = in.readLine()) != null) {
+                if (str.contains("ContourLight")) {
+                    System.out.println(str);
+                    return true;
+                }
+            }
+        } catch (IOException e) {
+        }
+        return false;
+    }
+
+    /**
      * 读取文件
      * @param Path
      * @return
