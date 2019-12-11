@@ -28,7 +28,9 @@ public class FileUtil {
     }
 
     /**
-     * @param path 
+     * 读取文件中的内容，
+     * 按行读取进行比较包含指定字符串则返回true，不包含则返回false
+     * @param path
      * @return
      */
     public static boolean readFile(String path) {
@@ -79,7 +81,6 @@ public class FileUtil {
 
     /**
      * 获取文件夹下指定文件后缀的文件列表
-     *
      * @param fileDir
      * @param suffix
      * @return
