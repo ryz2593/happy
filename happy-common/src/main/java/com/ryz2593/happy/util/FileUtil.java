@@ -4,6 +4,8 @@ import com.google.common.collect.Lists;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -74,6 +76,53 @@ public class FileUtil {
             }
         }
         return files;
+    }
+
+    /**
+     * 下载文件
+     * @param destUrl
+     * @param fileName
+     * @throws IOException
+     */
+    public static void downloadToFile(String destUrl, String fileName) throws IOException {
+        int BUFFER_SIZE = 1024;
+        FileOutputStream fos = null;
+        BufferedInputStream bis = null;
+        HttpURLConnection httpUrl = null;
+        URL url = null;
+        byte[] buf = new byte[BUFFER_SIZE];
+        int size = 0;
+        try {
+            //建立链接
+            url = new URL(destUrl);
+            httpUrl = (HttpURLConnection) url.openConnection();
+            httpUrl.setConnectTimeout(3000);
+            httpUrl.setReadTimeout(60 * 1000);
+            //连接指定的资源
+//            httpUrl.connect();
+            //获取网络输入流
+            bis = new BufferedInputStream(httpUrl.getInputStream());
+            new File(fileName).getParentFile().mkdirs();
+
+            //建立文件
+            fos = new FileOutputStream(fileName);
+
+            //保存文件
+            while ((size = bis.read(buf)) != -1) {
+                fos.write(buf, 0, size);
+            }
+        } catch (IOException e) {
+            throw e;
+        } finally {
+            try {
+                fos.close();
+                bis.close();
+            } catch (Exception e) {
+
+            }
+
+        }
+
     }
 
     /**
