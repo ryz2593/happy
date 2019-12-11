@@ -2,14 +2,14 @@ package com.ryz2593.happy.util;
 
 import com.google.common.collect.Lists;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.io.FilenameUtils;
 
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Enumeration;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
@@ -199,13 +199,61 @@ public class FileUtil {
         }
     }
 
-    public static void main(String[] args) {
-        String templateListFolder = "C:\\Users\\ryz2593\\Desktop\\eyeshadow_upper(5)";
-        File file = new File(templateListFolder);
-        //generateFileMd5(file);
+    public static void main(String[] args) throws IOException {
+//        String templateListFolder = "C:\\Users\\ryz2593\\Desktop\\eyeshadow_upper(5)";
+//        File file = new File(templateListFolder);
+//        //generateFileMd5(file);
+//
+//        getFiles(file, "ini");
+//        System.out.println(getFileSuffix(new File("C:\\Users\\ryz2593\\Desktop\\eyeshadow_upper(5)\\web_aa001_upper.ini")));
+//        System.out.println(ReadFile("C:\\Users\\ryz2593\\Desktop\\eyeshadow_upper(5)\\web_aa001_upper.ini"));
 
-        getFiles(file, "ini");
-        System.out.println(getFileSuffix(new File("C:\\Users\\ryz2593\\Desktop\\eyeshadow_upper(5)\\web_aa001_upper.ini")));
-        System.out.println(ReadFile("C:\\Users\\ryz2593\\Desktop\\eyeshadow_upper(5)\\web_aa001_upper.ini"));
+
+        //20191211
+        List<String> objectiveList = Lists.newArrayList();
+        String baseLocalPath = "E:\\aaa\\";
+        String tmpPath = baseLocalPath + "tmp" + File.separator;
+        SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");
+        String pathWithDate = tmpPath + df.format(new Date()) + File.separator;
+        File dirFile = new File(FilenameUtils.getFullPath(pathWithDate));
+        if (!dirFile.exists()) {
+            dirFile.mkdirs();
+        }
+        int index = 1;
+        for (String s : FileConstant.containList) {
+            System.out.println("processing " + index++ + " file, file name = " + s);
+            String fileName = FilenameUtils.getName(s);
+            String fileNameWithoutSuffix = fileName.substring(0, fileName.lastIndexOf("."));
+            String filePath = pathWithDate + fileName;
+            downloadToFile(s, filePath);
+            File fa = new File(filePath);
+            String mbaUnzipFile = pathWithDate + "unzipFile/" +fileNameWithoutSuffix + File.separator;
+            dirFile = new File(FilenameUtils.getFullPath(mbaUnzipFile));
+            if (!dirFile.exists()) {
+                dirFile.mkdirs();
+            }
+            unZipFiles(fa, mbaUnzipFile);
+            List<File> ll = getFiles(new File(mbaUnzipFile), "mba");
+            if (CollectionUtils.isNotEmpty(ll)) {
+                String absolutePath = ll.get(0).getAbsolutePath();
+                if (readFile(absolutePath)) {
+                    objectiveList.add(s);
+                }
+            }
+        }
+
+        System.out.println("====================================================================");
+        System.out.println("共有"+objectiveList.size()+"个包含Contour");
+        System.out.println("====================================================================");
+        for (String s : objectiveList) {
+            System.out.println(s);
+        }
+        System.out.println("====================================================================");
+        //20191211
+
+    }
+
+    static class FileConstant{
+        public static final List<String> containList = com.google.common.collect.Lists.newArrayList("http://aasdf.zip");
     }
 }
