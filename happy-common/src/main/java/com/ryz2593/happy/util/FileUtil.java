@@ -54,7 +54,7 @@ public class FileUtil {
     }
 
     /**
-     * 获取文件夹下制定文件后缀的文件列表
+     * 获取文件夹下指定文件后缀的文件列表
      *
      * @param fileDir
      * @param suffix
