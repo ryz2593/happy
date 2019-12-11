@@ -6,9 +6,12 @@ import org.apache.commons.codec.digest.DigestUtils;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
 
 /**
  * @author ryz2593
@@ -123,6 +126,32 @@ public class FileUtil {
 
         }
 
+    }
+
+    /**
+     * 解压文件
+     * @param zipFile  待解压文件
+     * @param descFile  解压目录
+     */
+    public static void unZipFiles(java.io.File zipFile, String descFile) {
+        byte[] buf = new byte[1024];
+        try {
+            ZipFile zf = new ZipFile(zipFile);
+            for (Enumeration entries = zf.entries(); entries.hasMoreElements(); ) {
+                ZipEntry entry = (ZipEntry) entries.nextElement();
+                String zipEntryName = entry.getName();
+                InputStream in = zf.getInputStream(entry);
+                OutputStream out = new FileOutputStream(descFile + zipEntryName);
+                int len;
+                while ((len = in.read(buf)) > 0) {
+                    out.write(buf, 0, len);
+                }
+                in.close();
+                out.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
