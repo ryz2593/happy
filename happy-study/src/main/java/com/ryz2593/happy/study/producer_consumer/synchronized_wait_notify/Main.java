@@ -31,6 +31,7 @@ public class Main {
 //                new Consumer(storage).run();
 //            }
 //        });
+
         p1.start();
         p2.start();
         p3.start();
