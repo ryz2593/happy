@@ -13,7 +13,7 @@ public class T02_00_sync_wait_notify {
         new Thread(()->{
             synchronized (o) {
                 for (char c : aI) {
-                    System.out.println(c);
+                    System.out.print(c);
 
                     try {
                         o.notify();
@@ -30,7 +30,7 @@ public class T02_00_sync_wait_notify {
         new Thread(()->{
             synchronized (o) {
                 for (char c : aC) {
-                    System.out.println(c);
+                    System.out.print(c);
 
                     try {
                         o.notify();

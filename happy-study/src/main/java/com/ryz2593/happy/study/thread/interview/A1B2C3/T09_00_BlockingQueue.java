@@ -16,7 +16,7 @@ public class T09_00_BlockingQueue {
 
         new Thread(() -> {
             for (char c : aI) {
-                System.out.println(c);
+                System.out.print(c);
                 try {
                     q1.put("ok");
                     q2.take();
@@ -34,7 +34,7 @@ public class T09_00_BlockingQueue {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                System.out.println(c);
+                System.out.print(c);
                 try {
                     q2.put("ok");
                 } catch (InterruptedException e) {

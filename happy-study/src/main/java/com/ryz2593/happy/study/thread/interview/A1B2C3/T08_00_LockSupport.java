@@ -15,7 +15,7 @@ public class T08_00_LockSupport {
 
         t1 = new Thread(()->{
             for (char c : aI) {
-                System.out.println(c);
+                System.out.print(c);
                 LockSupport.unpark(t2);
                 LockSupport.park();
             }
@@ -24,7 +24,7 @@ public class T08_00_LockSupport {
         t2 = new Thread(()->{
             for (char c : aC) {
                 LockSupport.park();
-                System.out.println(c);
+                System.out.print(c);
                 LockSupport.unpark(t1);
             }
         }, "t2");
