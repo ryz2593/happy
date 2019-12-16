@@ -12,11 +12,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class ThreadTest {
 
     public static void main(String[] args) throws InterruptedException, IOException {
-        int corePoolSize = 10;
-        int maximumPoolSize = 10;
+        int corePoolSize = 2;
+        int maximumPoolSize = 4;
         long keepAliveTime = 10;
         TimeUnit unit = TimeUnit.SECONDS;
-        BlockingQueue<Runnable> workQueue = new ArrayBlockingQueue<>(6);
+        BlockingQueue<Runnable> workQueue = new ArrayBlockingQueue<>(2);
         ThreadFactory threadFactory = new NameTreadFactory();
         RejectedExecutionHandler handler = new MyIgnorePolicy();
         ThreadPoolExecutor executor = new ThreadPoolExecutor(corePoolSize, maximumPoolSize, keepAliveTime, unit,
