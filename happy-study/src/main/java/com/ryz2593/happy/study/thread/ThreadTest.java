@@ -12,6 +12,16 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class ThreadTest {
 
     public static void main(String[] args) throws InterruptedException, IOException {
+
+        /**
+         * corePoolSize： 线程池核心线程数
+         * maximumPoolSize：线程池最大数
+         * keepAliveTime： 空闲线程存活时间
+         * unit： 时间单位
+         * workQueue： 线程池所使用的缓冲队列
+         * threadFactory：线程池创建线程使用的工厂
+         * handler： 线程池对拒绝任务的处理策略
+         */
         int corePoolSize = 2;
         int maximumPoolSize = 4;
         long keepAliveTime = 10;
@@ -21,14 +31,17 @@ public class ThreadTest {
         RejectedExecutionHandler handler = new MyIgnorePolicy();
         ThreadPoolExecutor executor = new ThreadPoolExecutor(corePoolSize, maximumPoolSize, keepAliveTime, unit,
                 workQueue, threadFactory, handler);
-        executor.prestartAllCoreThreads(); // 预启动所有核心线程
+
+        // 预启动所有核心线程
+        executor.prestartAllCoreThreads();
 
         for (int i = 1; i <= 10; i++) {
             MyTask task = new MyTask(String.valueOf(i));
             executor.execute(task);
         }
 
-        System.in.read(); //阻塞主线程
+        //阻塞主线程
+        System.in.read();
     }
 
     static class NameTreadFactory implements ThreadFactory {
