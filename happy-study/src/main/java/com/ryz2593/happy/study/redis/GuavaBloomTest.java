@@ -30,7 +30,7 @@ private static BloomFilter<Integer> bloomFilter = BloomFilter.create(Funnels.int
                 System.out.println(i+"误判了");
             }
         }
-        
+        System.out.println("总的误判数: "+count);
     }
 
 
