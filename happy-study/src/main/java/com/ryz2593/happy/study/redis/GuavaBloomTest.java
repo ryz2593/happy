@@ -24,7 +24,12 @@ private static BloomFilter<Integer> bloomFilter = BloomFilter.create(Funnels.int
             bloomFilter.put(i);
         }
         int count = 0;
-        
+        for (int i = 100000; i < 200000; i++) {
+            if (bloomFilter.mightContain(i)) {
+                count++;
+                System.out.println(i+"误判了");
+            }
+        }
     }
 
 
