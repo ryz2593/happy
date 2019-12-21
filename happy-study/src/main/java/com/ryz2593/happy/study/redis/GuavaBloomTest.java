@@ -13,10 +13,10 @@ public class GuavaBloomTest {
     private static final int size = 10000;
 
     //期望的误判率，误判率不能为0
-private static final double fpp = 0.01;
+    private static final double fpp = 0.01;
 
 
-private static BloomFilter<Integer> bloomFilter = BloomFilter.create(Funnels.integerFunnel(), size, fpp);
+    private static BloomFilter<Integer> bloomFilter = BloomFilter.create(Funnels.integerFunnel(), size, fpp);
 
     public static void main(String[] args) {
         //插入数据
@@ -27,10 +27,10 @@ private static BloomFilter<Integer> bloomFilter = BloomFilter.create(Funnels.int
         for (int i = 100000; i < 200000; i++) {
             if (bloomFilter.mightContain(i)) {
                 count++;
-                System.out.println(i+"误判了");
+                System.out.println(i + "误判了");
             }
         }
-        System.out.println("总的误判数: "+count);
+        System.out.println("总的误判数: " + count);
     }
 
 
