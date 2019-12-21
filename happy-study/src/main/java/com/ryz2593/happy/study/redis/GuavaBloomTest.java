@@ -19,6 +19,11 @@ private static final double fpp = 0.01;
 private static BloomFilter<Integer> bloomFilter = BloomFilter.create(Funnels.integerFunnel(), size, fpp);
 
     public static void main(String[] args) {
+        //插入数据
+        for (int i = 0; i < 100000; i++) {
+            bloomFilter.put(i);
+        }
+        int count = 0;
         
     }
 
