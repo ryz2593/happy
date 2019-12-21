@@ -15,7 +15,6 @@ public class GuavaBloomTest {
     //期望的误判率，误判率不能为0
     private static final double fpp = 0.01;
 
-
     private static BloomFilter<Integer> bloomFilter = BloomFilter.create(Funnels.integerFunnel(), size, fpp);
 
     public static void main(String[] args) {
@@ -32,6 +31,4 @@ public class GuavaBloomTest {
         }
         System.out.println("总的误判数: " + count);
     }
-
-
 }
