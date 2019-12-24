@@ -2,8 +2,7 @@ package com.ryz2593.happy;
 
 import com.google.common.collect.Maps;
 
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  *
@@ -15,7 +14,8 @@ public class MaxLongNumsInString {
 
     public static void main(String[] args) {
         //doGetMaxNumsInString1();
-        doGetMaxNumsInString2();
+        //doGetMaxNumsInString2();
+        chargeNum();
     }
 
     public static void doGetMaxNumsInString2() {
@@ -51,7 +51,7 @@ public class MaxLongNumsInString {
     }
 
     public static void doGetMaxNumsInString1() {
-        
+
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
         char[] chars = str.toCharArray();
@@ -77,5 +77,26 @@ public class MaxLongNumsInString {
             }
         }
         System.out.println(result);
+    }
+
+    public static void chargeNum(){
+        List list = Arrays.asList(5,2,3,1,9);
+        int N = list.size();
+        int t = 0;
+        Collections.sort(list);
+//        Collections.reverse(list); 逆序
+//        Collections.shuffle(list); 随机
+        boolean flag = true;
+        for(int i=0; i<list.size()-1 ; i++){
+            int a = (int)list.get(i+1);
+            int b = (int)list.get(i);
+            int c = a - b;
+            if(c != 1){
+                flag = false;
+                System.out.print("数字不连续哦");
+                break;
+            }
+        }
+        System.out.println(flag);
     }
 }
