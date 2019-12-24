@@ -13,9 +13,10 @@ import java.util.*;
 public class MaxLongNumsInString {
 
     public static void main(String[] args) {
-        doGetMaxNumsInString1();
-        doGetMaxNumsInString2();
-        chargeNum();
+//        doGetMaxNumsInString1();
+//        doGetMaxNumsInString2();
+//        chargeNum();
+        StringSplit();
     }
 
     /**
@@ -107,5 +108,19 @@ public class MaxLongNumsInString {
             }
         }
         System.out.println(flag);
+    }
+
+    public static void StringSplit() {
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNext()) {
+            String s = new String(sc.nextLine());
+            if (s.length() % 8 != 0)
+                // 如果不是八的倍数，字符串直接加八个“0”，
+                s = s + "00000000"; // 明显字符串只要八个一组输出就可以啦；
+            while (s.length() >= 8) {
+                System.out.println(s.substring(0, 8));
+                s = s.substring(8);
+            }
+        }
     }
 }
