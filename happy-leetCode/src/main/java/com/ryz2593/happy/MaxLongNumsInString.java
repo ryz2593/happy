@@ -50,6 +50,9 @@ public class MaxLongNumsInString {
         System.out.println(max);
     }
 
+    /**
+     * 
+     */
     public static void doGetMaxNumsInString1() {
 
         Scanner sc = new Scanner(System.in);
@@ -79,6 +82,9 @@ public class MaxLongNumsInString {
         System.out.println(result);
     }
 
+    /**
+     * 判断是否是连续的数字字符串
+     */
     public static void chargeNum(){
         List list = Arrays.asList(5,2,3,1,9);
         int N = list.size();
