@@ -13,11 +13,14 @@ import java.util.*;
 public class MaxLongNumsInString {
 
     public static void main(String[] args) {
-        //doGetMaxNumsInString1();
-        //doGetMaxNumsInString2();
+        doGetMaxNumsInString1();
+        doGetMaxNumsInString2();
         chargeNum();
     }
 
+    /**
+     * 获取字符串中最长的连续数字串的长度
+     */
     public static void doGetMaxNumsInString2() {
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
