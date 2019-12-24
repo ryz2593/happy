@@ -51,7 +51,7 @@ public class MaxLongNumsInString {
     }
 
     /**
-     * 
+     * 获取字符串中最长的连续数字串的长度
      */
     public static void doGetMaxNumsInString1() {
 
