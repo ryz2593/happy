@@ -51,6 +51,7 @@ public class MaxLongNumsInString {
     }
 
     public static void doGetMaxNumsInString1() {
+        
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
         char[] chars = str.toCharArray();
