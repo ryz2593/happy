@@ -15,8 +15,8 @@ public class MaxLongNumsInString {
     public static void main(String[] args) {
 //        doGetMaxNumsInString1();
 //        doGetMaxNumsInString2();
-//        chargeNum();
-        StringSplit();
+        chargeNum();
+//        StringSplit();
     }
 
     /**
@@ -90,7 +90,7 @@ public class MaxLongNumsInString {
      * 判断是否是连续的数字字符串
      */
     public static void chargeNum(){
-        List list = Arrays.asList(5,2,3,1,9);
+        List list = Arrays.asList(1,2,3,4,5);
         int N = list.size();
         int t = 0;
         Collections.sort(list);
