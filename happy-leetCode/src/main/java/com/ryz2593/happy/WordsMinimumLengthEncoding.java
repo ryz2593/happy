@@ -44,18 +44,20 @@ public class WordsMinimumLengthEncoding {
 
 
     public static int minimumLengthEncoding2(String[] words) {
+        //排序先，长的放在前面
         Arrays.sort(words, (a, b)->b.length() - a.length());
-        String res = "";
+        String result = "";
         for (int i = 0; i < words.length; i++) {
-            int index = res.indexOf(words[i]);
-            if (index != -1 && res.substring(index + words[i].length(), index + words[i].length() + 1).equals("#")) {
+            int index = result.indexOf(words[i]);
+            //字符串里是否包含下一个单词，并且subString之后是否为#，true则表明已包含，false不包含拼接到result上
+            if (index != -1 && result.substring(index + words[i].length(), index + words[i].length() + 1).equals("#")) {
                 continue;
             } else {
-                res = res + words[i];
-                res = res + "#";
+                result +=  words[i];
+                result += "#";
             }
         }
-        return res.length();
+        return result.length();
     }
 
 }
