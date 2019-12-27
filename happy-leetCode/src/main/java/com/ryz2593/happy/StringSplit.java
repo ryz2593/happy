@@ -45,7 +45,7 @@ public class StringSplit {
             }
 
             //输出
-            while (str.length() > 8) {
+            while (str.length() >= 8) {
                 System.out.println(str.substring(0, 8));
                 str = str.substring(8);
             }
