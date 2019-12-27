@@ -3,6 +3,8 @@ package com.ryz2593.happy;
 import java.util.Arrays;
 
 /**
+ * 报数游戏
+ * 一圈人报数，数到3退出，找到最后剩下的人
  * @autor ryz2593
  * @date 2019/12/27 23:40
  * @desc
@@ -16,10 +18,12 @@ public class CountingGame {
     public static void doCountingGame(int n) {
         boolean[] arr = new boolean[n];
 
+
         Arrays.fill(arr, true);
         int count = n;
         int num = 0;
         int start = 0;
+        
         while (count > 1) {
             if (arr[start]) {
                 if (num + 1 == 3) {
