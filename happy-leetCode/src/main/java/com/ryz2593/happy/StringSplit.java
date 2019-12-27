@@ -13,17 +13,19 @@ import java.util.Scanner;
 public class StringSplit {
 
     public static void main(String[] args) {
-
+        doStringSplit();
     }
 
     /**
      * 处理函数
      */
     public static void doStringSplit() {
+        
         Scanner sc = new Scanner(System.in);
-        int count= 2;
-        while (count > 0) {
-            while (sc.hasNext()) {
+        while (sc.hasNext()) {
+
+            int count = 2;
+            while (count > 0) {
                 String str = sc.nextLine();
                 if (str.length() % 8 != 0) {
                     str += "00000000";
@@ -32,8 +34,9 @@ public class StringSplit {
                     System.out.println(str.substring(0, 8));
                     str = str.substring(8);
                 }
+                count--;
             }
-            count--;
+
         }
 
     }
