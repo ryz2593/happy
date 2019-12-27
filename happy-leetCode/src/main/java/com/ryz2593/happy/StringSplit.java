@@ -18,6 +18,7 @@ public class StringSplit {
 
     /**
      * 处理函数
+     * 连续输入字符串(输入2次,每个字符串长度小于100)
      */
     public static void doStringSplit() {
         int count = 0;
@@ -38,7 +39,7 @@ public class StringSplit {
                 str = str.substring(8);
             }
         }
-                
+
 
 
 
