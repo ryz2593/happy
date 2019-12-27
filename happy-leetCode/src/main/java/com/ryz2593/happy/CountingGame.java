@@ -20,10 +20,13 @@ public class CountingGame {
 
 
         Arrays.fill(arr, true);
+        //记录剩余个数
         int count = n;
+        //记录有没有数到几了，有没有数到3呢
         int num = 0;
+        //记录循环开始位置
         int start = 0;
-        
+        //当剩余记录还大于1时，循环
         while (count > 1) {
             if (arr[start]) {
                 if (num + 1 == 3) {
