@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 /**
+ * 集五福  10个人最多可以集齐多少套五福
+ *
  * @autor ryz2593
  * @date 2019/12/27 21:36
  * @desc
