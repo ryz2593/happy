@@ -20,24 +20,27 @@ public class StringSplit {
      * 处理函数
      */
     public static void doStringSplit() {
-        
+        int count = 0;
         Scanner sc = new Scanner(System.in);
-        while (sc.hasNext()) {
-
-            int count = 2;
-            while (count > 0) {
+        String[] strings = new String[2];
+            while (count < 2) {
                 String str = sc.nextLine();
-                if (str.length() % 8 != 0) {
-                    str += "00000000";
-                }
-                while (str.length() > 8) {
-                    System.out.println(str.substring(0, 8));
-                    str = str.substring(8);
-                }
-                count--;
+                strings[count] = str;
+                count++;
+            }
+        for (String str : strings) {
+            if (str.length() % 8 != 0) {
+                str += "00000000";
             }
 
+            while (str.length() > 8) {
+                System.out.println(str.substring(0, 8));
+                str = str.substring(8);
+            }
         }
+                
+
+
 
     }
 }
