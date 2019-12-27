@@ -38,11 +38,16 @@ public class CountingGame {
                     count--;
                     //报数清零
                     num = 0;
+                    //将当前位置的人状态设置为出局
                     arr[start] = false;
+                    //打印一下出局的人的顺序
                     System.out.print((start + 1)+ ",");
+                    //判断循环有没有到队尾
+                    //如果已经到队尾，则设置再比较的起始位置到队头
                     if (start == n - 1) {
                         start = 0;
                     } else{
+                        //循环还没有到队尾，下次比较设置到后一位
                         start++;
                     }
 
