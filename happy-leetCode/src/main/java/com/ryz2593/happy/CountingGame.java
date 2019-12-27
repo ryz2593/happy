@@ -74,7 +74,7 @@ public class CountingGame {
         }
         System.out.println();
         for (int i = 0; i < arr.length; i++) {
-            //
+            //最后剩余的人，最后数组中状态为true的下标
             if (arr[i]) {
                 System.out.println(i + 1);
             }
