@@ -16,11 +16,12 @@ public class CountingGame {
     }
 
     public static void doCountingGame(int n) {
+        //使用一个boolean数组记录当前每个人是否还在游戏中
         boolean[] arr = new boolean[n];
 
-
+        //初始值所有人都在游戏中，都设置为true
         Arrays.fill(arr, true);
-        //记录剩余个数
+        //记录游戏中剩余人数
         int count = n;
         //记录有没有数到几了，有没有数到3呢
         int num = 0;
@@ -28,9 +29,14 @@ public class CountingGame {
         int start = 0;
         //当剩余记录还大于1时，循环
         while (count > 1) {
+            //该位置的人还未出局
             if (arr[start]) {
+                //判断到这个人的时候有没有数到3
+                //如果已经数到3了
                 if (num + 1 == 3) {
+                    //将游戏总人数减一
                     count--;
+                    //报数清零
                     num = 0;
                     arr[start] = false;
                     System.out.print((start + 1)+ ",");
