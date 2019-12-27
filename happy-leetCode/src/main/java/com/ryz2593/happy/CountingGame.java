@@ -52,7 +52,10 @@ public class CountingGame {
                     }
 
                 } else {
+                    //还没有数到3
+                    //报数加1
                     num++;
+                    //设置循环
                     if (start == n - 1) {
                         start = 0;
                     } else{
@@ -60,6 +63,8 @@ public class CountingGame {
                     }
                 }
             } else {
+                //当前位置的人已经处于出局状态，跳过，到下一人
+                //设置循环
                 if (start == n - 1) {
                     start = 0;
                 } else{
@@ -69,6 +74,7 @@ public class CountingGame {
         }
         System.out.println();
         for (int i = 0; i < arr.length; i++) {
+            //
             if (arr[i]) {
                 System.out.println(i + 1);
             }
