@@ -13,9 +13,12 @@ import java.util.Scanner;
 public class StringSplit {
 
     public static void main(String[] args) {
-        
+
     }
 
+    /**
+     * 处理函数
+     */
     public static void doStringSplit() {
         Scanner sc = new Scanner(System.in);
         int count= 2;
