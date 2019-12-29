@@ -1,4 +1,4 @@
-package com.ryz2593.happy;
+package com.ryz2593.happy.nowcoder;
 
 import java.util.Arrays;
 
