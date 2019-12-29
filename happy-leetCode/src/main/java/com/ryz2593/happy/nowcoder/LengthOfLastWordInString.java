@@ -13,7 +13,7 @@ public class LengthOfLastWordInString {
         String str = sc.nextLine();
         int lastWordLength = 0;
         for(int i = str.length() - 1; i >= 0; i--) {
-            while(str.charAt(i) == ' ') {
+            if (str.charAt(i) == ' ') {
                 break;
             }
             lastWordLength++;
