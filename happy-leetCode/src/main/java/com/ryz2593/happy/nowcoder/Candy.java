@@ -4,10 +4,18 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 /**
+ * 分子弹，分糖果 算法一样
+ * 可以使用两个数组来计算所需的最少个数，分别记录从左到右比较 和从右到左比较的值
+ * 最后将两个数组中相应坐标下的最大的值相加
+ * 返回
  * @author ryz2593
  */
 public class Candy {
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         int[] ratings = {2, 1,2};
         //System.out.println(candy(ratings));
