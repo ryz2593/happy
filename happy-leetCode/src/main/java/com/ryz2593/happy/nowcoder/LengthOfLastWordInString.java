@@ -3,6 +3,14 @@ package com.ryz2593.happy.nowcoder;
 import java.util.Scanner;
 
 /**
+ * 计算字符串最后一个单词的长度，单词以空格隔开。
+ *
+ * 示例1
+ * 输入
+ * hello world
+ * 输出
+ * 5
+ *
  * @autor ryz2593
  * @date 2019/12/29 20:51
  * @desc
