@@ -80,7 +80,7 @@ public class Candy {
                 left2right[i] = left2right[i-1]+1;
             }
         }
-        for (int length = ratings.length-2; length > 0; length--) {
+        for (int length = ratings.length-2; length >= 0; length--) {
             if (ratings[length]>ratings[length+1]){
                 right2left[length] = right2left[length+1] + 1;
             }
