@@ -28,6 +28,11 @@ public class WordsMinimumLengthEncoding {
         System.out.println(System.currentTimeMillis() - start2);
     }
 
+    /**
+     * 使用set
+     * @param words
+     * @return
+     */
     public static int minimumLengthEncoding(String[] words) {
         Set<String> stringSet = new HashSet<>(Arrays.asList(words));
         for (String word : words) {
@@ -43,6 +48,10 @@ public class WordsMinimumLengthEncoding {
     }
 
 
+    /**
+     * @param words
+     * @return
+     */
     public static int minimumLengthEncoding2(String[] words) {
         //排序先，长的放在前面
         Arrays.sort(words, (a, b)->b.length() - a.length());
