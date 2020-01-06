@@ -8,6 +8,30 @@ public class IwindowInfo {
     private String styleName;
     private String stylePath;
 
+    public String getStyleNo() {
+        return styleNo;
+    }
+
+    public void setStyleNo(String styleNo) {
+        this.styleNo = styleNo;
+    }
+
+    public String getStyleName() {
+        return styleName;
+    }
+
+    public void setStyleName(String styleName) {
+        this.styleName = styleName;
+    }
+
+    public String getStylePath() {
+        return stylePath;
+    }
+
+    public void setStylePath(String stylePath) {
+        this.stylePath = stylePath;
+    }
+
     @Override
     public String toString() {
         return "{" +
@@ -16,4 +40,6 @@ public class IwindowInfo {
                 ", stylePath='" + stylePath + '\'' +
                 '}';
     }
+
+
 }

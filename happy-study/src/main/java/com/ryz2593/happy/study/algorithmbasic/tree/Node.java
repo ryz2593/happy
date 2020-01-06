@@ -6,9 +6,9 @@ package com.ryz2593.happy.study.algorithmbasic.tree;
  * @desc
  */
 public class Node {
-    int data;   //节点数据
-    Node leftChild; //左子节点的引用
-    Node rightChild; //右子节点的引用
+    public int data;   //节点数据
+    public Node leftChild; //左子节点的引用
+    public Node rightChild; //右子节点的引用
     boolean isDelete;//表示节点是否被删除
 
     public Node(int data) {

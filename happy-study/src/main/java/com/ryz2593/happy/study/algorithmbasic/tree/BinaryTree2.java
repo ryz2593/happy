@@ -1,5 +1,9 @@
 package com.ryz2593.happy.study.algorithmbasic.tree;
 
+import org.apache.commons.lang3.RandomUtils;
+
+import java.util.Random;
+
 /**
  * @autor ryz2593
  * @date 2019/10/26 21:31
@@ -9,19 +13,31 @@ public class BinaryTree2 implements Tree {
     //表示根节点
     private Node root;
 
-    //查找节点
+    /**
+     * 查找节点
+     *
+     * @param key
+     * @return
+     */
     public Node find(int key) {
         Node current = root;
         while (current != null) {
-            if (current.data > key) {//当前值比查找值大，搜索左子树
+
+            //当前值比查找值大，搜索左子树
+            if (current.data > key) {
                 current = current.leftChild;
-            } else if (current.data < key) {//当前值比查找值小，搜索右子树
+
+            }
+            //当前值比查找值小，搜索右子树
+            else if (current.data < key) {
                 current = current.rightChild;
             } else {
                 return current;
             }
         }
-        return null;//遍历完整个树没找到，返回null
+
+        //遍历完整个树没找到，返回null
+        return null;
     }
 
     //插入节点
@@ -32,7 +48,7 @@ public class BinaryTree2 implements Tree {
             return true;
         } else {
             Node current = root;
-            Node parentNode = null;
+            Node parentNode;
             while (current != null) {
                 parentNode = current;
                 if (current.data > data) {//当前值比插入值大，搜索左子节点
@@ -186,25 +202,27 @@ public class BinaryTree2 implements Tree {
         return successor;
     }
 
+
     public static void main(String[] args) {
         BinaryTree2 bt = new BinaryTree2();
-        bt.insert(50);
-        bt.insert(20);
-        bt.insert(80);
-        bt.insert(10);
-        bt.insert(30);
-        bt.insert(60);
-        bt.insert(90);
-        bt.insert(25);
-        bt.insert(85);
-        bt.insert(100);
-        bt.delete(10);//删除没有子节点的节点
-        bt.delete(30);//删除有一个子节点的节点
-        bt.delete(80);//删除有两个子节点的节点
-        System.out.println(bt.findMax().data);
-        System.out.println(bt.findMin().data);
-        System.out.println(bt.find(100));
-        System.out.println(bt.find(200));
+        for (int i = 10; i >= 0; i--) {
+            int num = new Random().nextInt(100);
+            bt.insert(num);
+        }
+        Node root = bt.root;
+        bt.preOrder(root);
+        System.out.println();
+        bt.infixOrder(root);
+        System.out.println();
+        bt.postOrder(root);
+
+//        System.out.println(bt.delete(60));
+//        System.out.println(bt.delete(30));
+//        System.out.println(bt.delete(80));
+//        System.out.println(bt.findMax().data);
+//        System.out.println(bt.findMin().data);
+//        System.out.println(bt.find(100));
+//        System.out.println(bt.find(200));
 
     }
 
