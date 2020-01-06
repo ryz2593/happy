@@ -51,7 +51,7 @@ public class FileUtil {
     }
 
     /**
-     * 读取出文件中的每一行
+     * 读取文件，按行读取
      * @param path
      */
     public static void printFile(String path) {
