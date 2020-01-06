@@ -20,6 +20,7 @@ public class FileUtil {
 
     /**
      * 获取文件后缀
+     *
      * @param file
      * @return
      */
@@ -30,6 +31,7 @@ public class FileUtil {
     /**
      * 读取文件中的内容，
      * 按行读取进行比较包含指定字符串则返回true，不包含则返回false
+     *
      * @param path
      * @return
      */
@@ -49,7 +51,23 @@ public class FileUtil {
     }
 
     /**
+     * 读取出文件中的每一行
+     * @param path
+     */
+    public static void printFile(String path) {
+        try {
+            BufferedReader in = new BufferedReader(new FileReader(path));
+            String str;
+            while ((str = in.readLine()) != null) {
+                System.out.println(str);
+            }
+        } catch (IOException e) {
+        }
+    }
+
+    /**
      * 读取文件
+     *
      * @param Path
      * @return
      */
@@ -81,8 +99,9 @@ public class FileUtil {
 
     /**
      * 获取文件夹下指定文件后缀的文件列表
-     * @param fileDir  文件目录
-     * @param suffix   后缀名
+     *
+     * @param fileDir 文件目录
+     * @param suffix  后缀名
      * @return
      */
     public static List<File> getFiles(File fileDir, String suffix) {
@@ -103,8 +122,9 @@ public class FileUtil {
 
     /**
      * 下载文件
+     *
      * @param destUrl  源地址
-     * @param fileName  保存地址
+     * @param fileName 保存地址
      * @throws IOException
      */
     public static void downloadToFile(String destUrl, String fileName) throws IOException {
@@ -150,8 +170,9 @@ public class FileUtil {
 
     /**
      * 解压文件
+     *
      * @param zipFile  待解压文件
-     * @param descFile  解压目录
+     * @param descFile 解压目录
      */
     public static void unZipFiles(java.io.File zipFile, String descFile) {
         byte[] buf = new byte[1024];
@@ -176,6 +197,7 @@ public class FileUtil {
 
     /**
      * 计算文件的md5值
+     *
      * @param fileDir
      * @throws IOException
      */
@@ -227,7 +249,7 @@ public class FileUtil {
             String filePath = pathWithDate + fileName;
             downloadToFile(s, filePath);
             File fa = new File(filePath);
-            String mbaUnzipFile = pathWithDate + "unzipFile/" +fileNameWithoutSuffix + File.separator;
+            String mbaUnzipFile = pathWithDate + "unzipFile/" + fileNameWithoutSuffix + File.separator;
             dirFile = new File(FilenameUtils.getFullPath(mbaUnzipFile));
             if (!dirFile.exists()) {
                 dirFile.mkdirs();
@@ -243,7 +265,7 @@ public class FileUtil {
         }
 
         System.out.println("====================================================================");
-        System.out.println("共有"+objectiveList.size()+"个包含Contour");
+        System.out.println("共有" + objectiveList.size() + "个包含Contour");
         System.out.println("====================================================================");
         for (String s : objectiveList) {
             System.out.println(s);
@@ -253,7 +275,7 @@ public class FileUtil {
 
     }
 
-    static class FileConstant{
+    static class FileConstant {
         public static final List<String> containList = com.google.common.collect.Lists.newArrayList("http://aasdf.zip");
     }
 }
