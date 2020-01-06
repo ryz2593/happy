@@ -99,7 +99,6 @@ public class FileUtil {
 
     /**
      * 获取文件夹下指定文件后缀的文件列表
-     *
      * @param fileDir 文件目录
      * @param suffix  后缀名
      * @return
