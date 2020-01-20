@@ -1,4 +1,4 @@
-package com.ryz2593.happy.leetcode;
+package com.ryz2593.happy.study.algorithmbasic.backtracking;
 
 /**
  * @Author: ryz

@@ -1,4 +1,4 @@
-package com.ryz2593.happy.leetcode;
+package com.ryz2593.happy.study.algorithmbasic.backtracking;
 
 import java.util.ArrayList;
 
@@ -9,12 +9,16 @@ import java.util.ArrayList;
 public class BackTracking {
     public static void main(String[] args) {
         int n = 3;
-        int leftnum = n, rightnum = n;//左括号和右括号都各有n个
+        int leftNum = n, rightNum = n;//左括号和右括号都各有n个
         ArrayList<String> results = new ArrayList<String>();//用于存放解空间
-        parentheses("", results, leftnum, rightnum);
+        parentheses("", results, leftNum, rightNum);
         for (String s : results) {
             System.out.println(s);
         }
+
+
+        String s = "abc";
+        PermutationAndCombination(s, "");
     }
 
     public static void parentheses(String sublist, ArrayList<String> results, int leftnum, int rightnum) {
@@ -28,6 +32,23 @@ public class BackTracking {
         }
         if (leftnum > 0) {
             parentheses(sublist + "(", results, leftnum - 1, rightnum);
+        }
+    }
+
+
+    /**
+     * 字母排列
+     * @param s
+     * @param temp
+     */
+    public static void PermutationAndCombination(String s, String temp) {//参数设计地尽量地简洁
+        if (s.length() == 0) {
+            System.out.println(temp);
+            return;
+        }
+        for (int i = 0; i < s.length(); i++) {
+            String news = s.substring(0, i) + s.substring(i + 1, s.length());//去掉String中的某个字母
+            PermutationAndCombination(news, temp + s.charAt(i));
         }
     }
 }
