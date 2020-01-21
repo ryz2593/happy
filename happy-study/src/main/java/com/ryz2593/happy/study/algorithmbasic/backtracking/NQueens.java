@@ -80,14 +80,22 @@ public class NQueens {
      * @return true-可放置，false-不可放置
      */
     private static boolean validate(char[][] board, int x, int y, int[] queens) {
-        if (y == board.length) return false;
+        if (y == board.length) {
+            return false;
+        }
         // 利用两点式直线方程，验证已放置的皇后是否在待放置点（x, y）的两条斜线上
         int dx, dy;
         for (int qx = 0; qx < x; qx++) {
             dy = y - queens[qx];
-            if (dy == 0) return false;// 在同一列上有王后
+            if (dy == 0) {
+                // 在同一列上有王后
+                return false;
+            }
             dx = x - qx;
-            if (dx == dy || dx == -dy) return false;// 斜率为1或-1时，在斜线上有王后
+            if (dx == dy || dx == -dy) {
+                // 斜率为1或-1时，在斜线上有王后
+                return false;
+            }
         }
         return true;
     }

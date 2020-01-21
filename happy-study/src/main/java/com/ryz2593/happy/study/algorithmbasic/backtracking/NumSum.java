@@ -18,7 +18,8 @@ public class NumSum {
             return;
         }
         for (int i = 0; i < num.length; i++) {
-            if (num[i] != -1) {//如果取过这个数字了，就置为-1
+            //如果取过这个数字了，就置为-1
+            if (num[i] != -1) {
                 int k = num[i];
                 num[i] = -1;
                 find(num, target, temp + k);

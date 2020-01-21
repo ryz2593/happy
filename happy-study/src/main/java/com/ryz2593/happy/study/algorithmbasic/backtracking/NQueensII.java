@@ -5,9 +5,20 @@ package com.ryz2593.happy.study.algorithmbasic.backtracking;
  * @Date: 2020/1/15 21:41
  */
 public class NQueensII {
-    int[] x;//当前解
-    int N;//皇后个数
-    int sum = 0;//当前已找到的可行方案数
+
+    /**
+     *当前解
+     */
+    int[] x;
+    /**
+     * 皇后个数
+     */
+    int N;
+    /**
+     * 当前已找到的可行方案数
+     */
+    int sum = 0;
+
     public int totalNQueens(int n) {
         N = n;
         x = new int[N+1];
