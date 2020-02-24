@@ -33,7 +33,8 @@ public class DFSMaze {
         if (maze[x][y] == 1) {
             return; // 判断是否通路和越界
         }
-        if (x == m - 1 && y == n - 1) { // 判断是否抵达出口
+        // 判断是否抵达出口
+        if (x == m - 1 && y == n - 1) {
             path = path + "(" + x + "," + y + ")";
             if (shortestPath.length() == 0 || shortestPath.length() > shortestPath.length()) {
                 shortestPath = path;
@@ -43,13 +44,19 @@ public class DFSMaze {
         }
 
         String temp = path;
-        path = path + "(" + x + "," + y + ")" + "-"; // 记录路线
-        maze[x][y] = 1; // 将走过的路标记
+        // 记录路线
+        path = path + "(" + x + "," + y + ")" + "-";
+        // 将走过的路标记
+        maze[x][y] = 1;
         // 向四个方向搜索
-        dfsMaze(x + 1, y, maze);  //向右搜索
-        dfsMaze(x, y + 1, maze);  //向下搜索
-        dfsMaze(x, y - 1, maze);  //向上搜索
-        dfsMaze(x - 1, y, maze);  //向左搜索
+        //向右搜索
+        dfsMaze(x + 1, y, maze);
+        //向下搜索
+        dfsMaze(x, y + 1, maze);
+        //向上搜索
+        dfsMaze(x, y - 1, maze);
+        //向左搜索
+        dfsMaze(x - 1, y, maze);
         // 将路线和标记恢复成上一次的状态
         maze[x][y] = 0;
         //清除
@@ -86,7 +93,7 @@ public class DFSMaze {
 		/*
 		 * 从矩阵的左上角位置开始搜索
 		 * */
-        dfsMaze(0, 0, maze);
+        dfsMaze(0, 0, maze2);
         if (shortestPath.length() != 0) {
             System.out.println("最短路线为：" + shortestPath);
         } else {
