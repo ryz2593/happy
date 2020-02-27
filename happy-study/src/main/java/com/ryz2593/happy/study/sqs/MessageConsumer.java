@@ -1,10 +1,7 @@
 package com.ryz2593.happy.study.sqs;
 
-import com.google.common.collect.Lists;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
-import java.util.List;
 
 /**
  * @author ryz2593
