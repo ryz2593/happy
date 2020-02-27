@@ -14,6 +14,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 /**
+ * 文件操作工具类
  * @author ryz2593
  */
 public class FileUtil {
