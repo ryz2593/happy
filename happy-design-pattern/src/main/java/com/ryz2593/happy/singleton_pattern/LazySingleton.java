@@ -6,29 +6,39 @@ package com.ryz2593.happy.singleton_pattern;
  * @desc
  */
 class lazySingleton {
-	//
 	private static lazySingleton instance = null;
 	private lazySingleton (){}
-	//���߳�����£����̰߳�ȫd
+
+	/**
+	 * not thread safe
+	 * @return
+	 */
 	public static lazySingleton getInstance() {
 		if(instance == null) {
 			instance = new lazySingleton();
 		}
 		return instance;
 	}
-	
-	//
+
+	/**
+	 * thread safe
+	 * @return
+	 */
 	public static synchronized lazySingleton getInstance1() {
 		if(instance == null) {
 			instance = new lazySingleton();
 		}
 		return instance;
 	}
-	
-	//
+
+	/**
+	 * thread safe
+	 * double check getInstance
+	 *
+	 * @return
+	 */
 	public static lazySingleton getInstance2() {
 		if(instance == null) {
-			//������ס����Singleton
 			synchronized(lazySingleton.class) {
 				if(instance == null) {
 					instance = new lazySingleton();
