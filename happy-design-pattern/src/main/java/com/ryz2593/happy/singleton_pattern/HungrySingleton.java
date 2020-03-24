@@ -6,7 +6,7 @@ package com.ryz2593.happy.singleton_pattern;
  * @desc
  */
 class HungrySingleton {
-	//¶öººÊ½
+
 	private static Singleton instance = new Singleton();
 
 	private HungrySingleton (){}

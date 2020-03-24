@@ -5,17 +5,17 @@ package com.ryz2593.happy.singleton_pattern;
  * @date 2019/9/5
  * @desc
  */
-class lazySingleton {
-	private static lazySingleton instance = null;
-	private lazySingleton (){}
+class LazySingleton {
+	private static LazySingleton instance = null;
+	private LazySingleton(){}
 
 	/**
 	 * not thread safe
 	 * @return
 	 */
-	public static lazySingleton getInstance() {
+	public static LazySingleton getInstance() {
 		if(instance == null) {
-			instance = new lazySingleton();
+			instance = new LazySingleton();
 		}
 		return instance;
 	}
@@ -24,9 +24,9 @@ class lazySingleton {
 	 * thread safe
 	 * @return
 	 */
-	public static synchronized lazySingleton getInstance1() {
+	public static synchronized LazySingleton getInstance1() {
 		if(instance == null) {
-			instance = new lazySingleton();
+			instance = new LazySingleton();
 		}
 		return instance;
 	}
@@ -37,11 +37,11 @@ class lazySingleton {
 	 *
 	 * @return
 	 */
-	public static lazySingleton getInstance2() {
+	public static LazySingleton getInstance2() {
 		if(instance == null) {
-			synchronized(lazySingleton.class) {
+			synchronized(LazySingleton.class) {
 				if(instance == null) {
-					instance = new lazySingleton();
+					instance = new LazySingleton();
 				}
 			}
 		}
