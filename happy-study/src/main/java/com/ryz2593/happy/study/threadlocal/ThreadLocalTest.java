@@ -23,26 +23,45 @@ public class ThreadLocalTest {
     }
 
     static class MyThread extends Thread {
-        private static ThreadLocal<Integer> threadLocal = new ThreadLocal<>();
+        private static ThreadLocal<Integer> threadLocal = new ThreadLocal<Integer>(){
+            @Override
+            protected Integer initialValue() {
+                return 0;
+            }
+        };
+
+
+        private int index;
+
+        public MyThread(int index) {
+            this.index = index;
+        }
+
 
         @Override
         public void run() {
             super.run();
-            for (int i = 0; i < 3; i++) {
-                threadLocal.set(i);
-                System.out.println(getName() + " threadLocal.get() = " + threadLocal.get());
+            System.out.println("线程" + index + "的初始value:" + threadLocal.get());
+            for (int i = 0; i < 10; i++) {
+                threadLocal.set(threadLocal.get() + i);
             }
+            System.out.println("线程" + index + "的累加value:" + threadLocal.get());
         }
     }
 
     public static void main(String[] args) throws InterruptedException {
 
-        MyThread myThreadA = new MyThread();
-        myThreadA.setName("myThreadA");
-        MyThread myThreadB = new MyThread();
-        myThreadB.setName("myThreadB");
-        myThreadA.start();
-        myThreadB.start();
+        for (int i = 0; i < 5; i++) {
+            new Thread(new MyThread(i)).start();
+        }
+
+//        MyThread myThreadA = new MyThread();
+//        myThreadA.setName("myThreadA");
+//        MyThread myThreadB = new MyThread();
+//        myThreadB.setName("myThreadB");
+//        myThreadA.start();
+//        myThreadB.start();
+
 //        final ThreadLocalTest test = new ThreadLocalTest();
 //
 //        test.set();
