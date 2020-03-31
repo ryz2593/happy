@@ -24,6 +24,10 @@ public class _String {
 
         System.out.println(anotherString.hashCode());
 
+        String numStr = "128";
+
+        System.out.println(Byte.parseByte(numStr));
+
 
     }
 }
