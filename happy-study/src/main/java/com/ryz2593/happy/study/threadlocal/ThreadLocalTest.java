@@ -1,11 +1,13 @@
 package com.ryz2593.happy.study.threadlocal;
 
 /**
+ * ThreadLocal 中存储的是线程本地的变量，线程之间是隔离的
  * @author ryz2593
  * @date 2020/3/20 13:38
  */
 public class ThreadLocalTest {
-
+    //创建一个全局的integerLocal变量
+    static ThreadLocal<Integer> integerLocal = new ThreadLocal<>();
     ThreadLocal<Long> longLocal = new ThreadLocal<Long>();
     ThreadLocal<String> stringLocal = new ThreadLocal<String>();
 
@@ -51,9 +53,9 @@ public class ThreadLocalTest {
 
     public static void main(String[] args) throws InterruptedException {
 
-        for (int i = 0; i < 5; i++) {
-            new Thread(new MyThread(i)).start();
-        }
+//        for (int i = 0; i < 5; i++) {
+//            new Thread(new MyThread(i)).start();
+//        }
 
 //        MyThread myThreadA = new MyThread();
 //        myThreadA.setName("myThreadA");
@@ -83,6 +85,29 @@ public class ThreadLocalTest {
 //
 //        System.out.println(test.getLong());
 //        System.out.println(test.getString());
+
+
+        Thread t1 = new Thread(()->{
+            System.out.println(integerLocal.get());
+            integerLocal.set(0);
+            System.out.println(integerLocal.get());
+        });
+
+        Thread t2 = new Thread(()->{
+            System.out.println(integerLocal.get());
+            integerLocal.set(1);
+            System.out.println(integerLocal.get());
+        });
+
+        t1.start();
+
+        //线程1执行完在执行线程2 join()的作用 比如在线程B中调用了线程A的Join()方法，直到线程A执行完毕后，才会继续执行线程B。
+        //t.join();      //调用join方法，等待线程t执行完毕
+        t1.join();
+
+        t2.start();
+
+
     }
 
 }
