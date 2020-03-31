@@ -2,6 +2,9 @@ package com.ryz2593.happy.study.threadlocal;
 
 /**
  * ThreadLocal 中存储的是线程本地的变量，线程之间是隔离的
+ * 如果是使用了线程池，在threadLocal中设置了变量的值，
+ * 在使用之后最好进行清除，否则当前任务结束了线程被释放回到了线程池中并没有被销毁
+ * 线程被一个任务使用了，使用到这个变量，
  * @author ryz2593
  * @date 2020/3/20 13:38
  */
