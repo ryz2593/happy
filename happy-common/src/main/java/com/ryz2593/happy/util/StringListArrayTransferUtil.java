@@ -36,6 +36,7 @@ public class StringListArrayTransferUtil {
         public void setSort(Integer sort) {
             this.sort = sort;
         }
+        
     }
 
     public static void main(String[] args) {
