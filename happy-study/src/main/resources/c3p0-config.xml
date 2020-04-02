@@ -1,0 +1,27 @@
+<c3p0-config>
+    <!-- 使用默认的配置读取连接池对象-->
+    <default-config>
+        <!-- 链接参数-->
+        <property name="driverClass">com.mysql.jdbc.Driver</property>
+        <property name="jdbcUrl">jdbc:mysql://localhost:3306/test</property>
+        <property name="user">root</property>
+        <property name="password">Arcsoft01</property>
+
+        <!-- 连接池参数-->
+        <property name="initialPoolSize">5</property>
+        <property name="maxPoolSize">10</property>
+        <property name="checkoutTimeout">3000</property>
+    </default-config>
+
+    <!--named-config的name属性值用于传递构造方法中去 -->
+    <named-config name="db">
+        <property name="driverClass">com.mysql.jdbc.Driver</property>
+        <property name="jdbcUrl">
+            jdbc:mysql://localhost:3306/test
+        </property>
+        <property name="user">root</property>
+        <property name="password">Arcsoft01</property>
+        <property name="initialPoolSize">5</property>
+        <property name="maxPoolSize">15</property>
+    </named-config>
+</c3p0-config>
