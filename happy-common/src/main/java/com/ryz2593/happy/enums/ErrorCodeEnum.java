@@ -5,7 +5,8 @@ package com.ryz2593.happy.enums;
  * @date 2020/4/2 16:42
  */
 public enum ErrorCodeEnum {
-    SUCCESS(0,"success");
+    SUCCESS(0, "success"),
+    FAIL(-1,"fail");
 
     ErrorCodeEnum(int code, String msg) {
         this.code = code;
@@ -19,15 +20,28 @@ public enum ErrorCodeEnum {
         return code;
     }
 
-    public void setCode(int code) {
-        this.code = code;
-    }
-
     public String getMsg() {
         return msg;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
+    public static ErrorCodeEnum getErrorCodeEnum(int code) {
+        ErrorCodeEnum[] values = ErrorCodeEnum.values();
+        for (ErrorCodeEnum errorCodeEnum : values) {
+            if (errorCodeEnum.getCode() == code) {
+                return errorCodeEnum;
+            }
+        }
+        return null;
     }
+
+    public static String getMsg(int code) {
+        ErrorCodeEnum[] values = ErrorCodeEnum.values();
+        for (ErrorCodeEnum errorCodeEnum : values) {
+            if (errorCodeEnum.getCode() == code) {
+                return errorCodeEnum.getMsg();
+            }
+        }
+        return null;
+    }
+
 }
