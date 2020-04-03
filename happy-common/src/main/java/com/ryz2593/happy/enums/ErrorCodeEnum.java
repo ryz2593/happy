@@ -6,7 +6,8 @@ package com.ryz2593.happy.enums;
  */
 public enum ErrorCodeEnum {
     SUCCESS(0, "success"),
-    FAIL(-1,"fail");
+    FAIL(-1,"fail"),
+    SYSTEM_ERROR(999,"system error");
 
     ErrorCodeEnum(int code, String msg) {
         this.code = code;
