@@ -13,6 +13,7 @@ import java.util.Map;
 
 
 /**
+ * Json字符串转换成对象工具类
  * @author ryz2593
  */
 public class JsonUtil {
