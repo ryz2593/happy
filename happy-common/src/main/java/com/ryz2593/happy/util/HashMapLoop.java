@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- * 遍历hashmap内容
+ * 遍历hashMap内容
  *
  * @author ryz2593
  */
