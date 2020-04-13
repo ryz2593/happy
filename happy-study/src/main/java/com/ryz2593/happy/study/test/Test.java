@@ -31,6 +31,9 @@ public class Test {
 
     }
 
+    /**
+     * 要定义为static类型
+     */
     static class DataBean {
         private String configVersion;
         private LinkedHashMap iWindowVersion;
@@ -53,6 +56,9 @@ public class Test {
         }
     }
 
+    /**
+     * 因为是main()中调用， main()方法是static类型的，所以Response也要定义为static类型
+     */
     static class Response {
         private int code;
         private String msg;
