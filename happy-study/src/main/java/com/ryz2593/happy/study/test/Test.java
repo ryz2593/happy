@@ -4,6 +4,9 @@ import com.ryz2593.happy.util.JsonUtil;
 import java.util.LinkedHashMap;
 
 /**
+ * 自定义对象来接收string字符串，
+ * 即使用JsonUtil工具类将string字符串转换成自定义的对象
+ *
  * @author ryz2593
  * @date 2020/4/9 16:25
  */
