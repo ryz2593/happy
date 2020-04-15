@@ -11,7 +11,7 @@ public class FutureTaskTest {
     public static void main(String[] args) {
         //第一种方式
         ExecutorService executor = Executors.newCachedThreadPool();
-        Task task = new Task();
+        FutureTest.Task task = new FutureTest.Task();
         FutureTask<Integer> futureTask = new FutureTask<Integer>(task);
         executor.submit(futureTask);
         executor.shutdown();
