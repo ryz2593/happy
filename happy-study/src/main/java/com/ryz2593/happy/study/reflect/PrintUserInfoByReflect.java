@@ -36,7 +36,7 @@ public class PrintUserInfoByReflect {
         //一：通过全限定名获取类对象
         Class userClass = null;
         try {
-            userClass = Class.forName("com.ryz2593.happy.study.reflect.User");
+            userClass = Class.forName("com.ryz2593.happy.study.reflect.PrintUserInfoByReflect.User");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -92,6 +92,8 @@ public class PrintUserInfoByReflect {
         }
         return map;
     }
+
+
 }
 
 class User {
@@ -127,3 +129,4 @@ class User {
     }
 
 }
+
