@@ -9,7 +9,7 @@
 //你可以迭代或递归地反转链表。你能否用两种方法解决这道题？
 // Related Topics 链表
 
-package com.ryz2593.happy.leetcode.editor.cn;
+package com.ryz2593.happy.leetcode;
 /**
  * 反转一个单链表
  *
