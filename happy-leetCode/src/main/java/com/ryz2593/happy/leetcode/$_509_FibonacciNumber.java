@@ -38,7 +38,7 @@
 //
 // Related Topics 数组
 
-package com.ryz2593.happy.leetcode.editor.cn;
+package com.ryz2593.happy.leetcode;
 
 /**
  * 斐波那契数
@@ -46,9 +46,9 @@ package com.ryz2593.happy.leetcode.editor.cn;
  * @author r30002879
  * @since 2020-06-10
  */
-public class FibonacciNumber {
+public class $_509_FibonacciNumber {
     public static void main(String[] args) {
-        Solution solution = new FibonacciNumber().new Solution();
+        Solution solution = new $_509_FibonacciNumber().new Solution();
         System.out.println(solution.fib(3));
     }
 
