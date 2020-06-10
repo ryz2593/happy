@@ -23,7 +23,7 @@
 // 给定 target = 20，返回 false。
 // Related Topics 二分查找 分治算法
 
-package com.ryz2593.happy.leetcode.editor.cn;
+package com.ryz2593.happy.leetcode;
 
 /**
  * 功能描述
@@ -31,9 +31,9 @@ package com.ryz2593.happy.leetcode.editor.cn;
  * @author r30002879
  * @since 2020-06-09
  */
-public class SearchA2dMatrixIi {
+public class $_240_SearchA2dMatrixIi {
     public static void main(String[] args) {
-        Solution solution = new SearchA2dMatrixIi().new Solution();
+        Solution solution = new $_240_SearchA2dMatrixIi().new Solution();
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
