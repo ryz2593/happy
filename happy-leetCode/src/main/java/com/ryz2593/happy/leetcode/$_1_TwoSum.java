@@ -13,7 +13,7 @@
 //
 // Related Topics 数组 哈希表
 
-package com.ryz2593.happy.leetcode.editor.cn;
+package com.ryz2593.happy.leetcode;
 
 import java.util.HashMap;
 import java.util.Map;
