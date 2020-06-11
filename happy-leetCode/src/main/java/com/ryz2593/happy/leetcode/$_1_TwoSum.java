@@ -24,9 +24,9 @@ import java.util.Map;
  * @author ryz
  * @since 2020-06-11
  */
-public class TwoSum {
+public class $_1_TwoSum {
     public static void main(String[] args) {
-        Solution solution = new TwoSum().new Solution();
+        Solution solution = new $_1_TwoSum().new Solution();
         int[] nums = {2,7,11,15};
         int target = 9;
         int[] ints = solution.twoSum(nums, target);
