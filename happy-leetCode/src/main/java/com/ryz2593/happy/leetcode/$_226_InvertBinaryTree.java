@@ -54,5 +54,4 @@ public class $_226_InvertBinaryTree {
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
-
 }
