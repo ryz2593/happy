@@ -8,7 +8,7 @@
 // 提示：气温 列表长度的范围是 [1, 30000]。每个气温的值的均为华氏度，都是在 [30, 100] 范围内的整数。
 // Related Topics 栈 哈希表
 
-package com.ryz2593.happy.leetcode.editor.cn;
+package com.ryz2593.happy.leetcode;
 
 import java.util.ArrayDeque;
 import java.util.Arrays;
