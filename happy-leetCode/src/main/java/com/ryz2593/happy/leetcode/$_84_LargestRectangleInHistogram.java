@@ -23,7 +23,7 @@
 //输出: 10
 // Related Topics 栈 数组
 
-package com.ryz2593.happy.leetcode.editor.cn;
+package com.ryz2593.happy.leetcode;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
