@@ -17,7 +17,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <jackson.version>2.7.3</jackson.version>
+        <jackson.version>2.12.7.1</jackson.version>
         <aws-java-sdk.version>1.11.52</aws-java-sdk.version>
         <commons-collections4.version>4.1</commons-collections4.version>
         <spring.version>4.2.5.RELEASE</spring.version>
